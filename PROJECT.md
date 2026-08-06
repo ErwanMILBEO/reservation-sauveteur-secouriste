@@ -40,6 +40,12 @@ remplaçant surveillant de baignade. Contrats salariés ou auto-entrepreneur.
 - HTTPS forcé. Pas de domaine personnalisé (CNAME) pour l'instant.
 - **Process de déploiement : `git push origin main`** → GitHub Pages
   reconstruit automatiquement. Rien à activer à la main.
+- Fichier **`.nojekyll`** à la racine : le site est servi tel quel, sans
+  passer par Jekyll (bonne pratique pour un site 100% statique).
+- ⚠️ Le build Pages peut parfois échouer temporairement côté GitHub
+  (« Page build failed », sans détail, statut GitHub pourtant « operational »).
+  Remède : relancer avec un commit à vide (`git commit --allow-empty`) et
+  réessayer un peu plus tard — ça finit par repasser (vécu le 06/08/2026).
 
 ## 4. Design system (référence — ne pas modifier sans demande explicite)
 
