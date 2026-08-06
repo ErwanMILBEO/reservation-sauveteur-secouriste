@@ -5,11 +5,56 @@
 
 ## Changelog
 
+- **2026-08-06 (3)** — Identité « Erwan Milbéo » + icône globe-trotteur ;
+  atténuation emojis (50%) ; légende façon cellules calendrier ; footer refondu
+  (logo, descriptif 2 lignes desktop / césure mobile, contacts 1 ligne, lien
+  site) ; bandeau bleu (texte + espacement). Déployé.
 - **2026-08-06 (2)** — Refonte du hero : badges Permis bateau + France entière,
   nouveau titre + arguments, liste des lieux, CTA « Réservez » animé, widget
   contrat flashy + popup « Voir conditions ». Déployé.
 - **2026-08-06 (1)** — Correction de l'affichage mobile (hero + panier fixe) ;
   création de PROJECT.md et HANDOFF.md.
+
+---
+
+## 2026-08-06 (3) — Identité, atténuations, légende & footer
+
+Session itérative validée pas à pas (localhost avant push), responsive
+desktop + mobile. Déploiement groupé en fin de session.
+
+### Modifs livrées
+1. **Identité** : ligne « Erwan Milbéo » ajoutée en haut du hero, au-dessus des
+   badges (`.hero-identity`) — police **Cormorant Garamond** italique (ajoutée
+   à l'import Google Fonts), dorée atténuée (opacity 0.8), taille réduite
+   (22px desktop / 18px mobile).
+2. **Icône globe-trotteur** (`.identity-icon`) devant le nom : globe + orbite
+   pointillée + point « voyageur » (SVG inline). Reprise **en turquoise** dans
+   le footer devant le nom (remplace l'ancienne icône radar).
+3. **Emojis bouée + casque** atténués à `opacity:0.5` (desktop + mobile) pour
+   se fondre dans le fond.
+4. **Espace haut du hero** réduit (padding-top 56→40 desktop, 44→30 mobile).
+5. **Légende** : les icônes abstraites (coche/cadenas) remplacées par des
+   **mini-cases** (`.legend-cell`) identiques aux cellules du calendrier
+   (cadre blanc + drapeau vert / cadre grisé + drapeau gris).
+6. **Footer** :
+   - Ajout **Permis bateau** aux diplômes ; descriptif remanié
+     (« Remplacements & Saisons · Sauvetage-Secourisme · Bretagne & France
+     entière »).
+   - **Desktop** : descriptif sur 2 lignes (diplômes / activité) ; **mobile** :
+     césure après « Saisons », « France entière » insécable — géré par des
+     `<br>`/séparateurs conditionnels (`.brk-1/2`, `.sep-1/2`, `.nowrap`).
+   - **Contacts tél + email sur une seule ligne** en mobile (`.footer-contacts`
+     en flex nowrap ; marge du `.footer-sep` réduite — c'était la cause du
+     retour à la ligne).
+   - Nouvelle ligne centrée : lien **www.erwan-milbeo-timeshare.com**
+     (`target="_blank" rel="noopener"`).
+7. **Bandeau bleu** (`.open-note`) : fin du texte → « …pour programmer vos
+   missions. » ; espace bandeau↔footer resserré (marge basse 50→22px, padding
+   haut footer 26→16px).
+
+### Vérifs
+- Aucun débordement horizontal (360/390/414), aucune erreur console.
+- Popup « Voir conditions » et animations OK (respect `prefers-reduced-motion`).
 
 ---
 

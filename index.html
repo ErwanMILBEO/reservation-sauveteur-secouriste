@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Disponibilités — Sauveteur aquatique BNSSA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --marine:#0A2A3B;
@@ -42,7 +42,7 @@
   .hero{
     background:radial-gradient(circle at 15% 20%, var(--marine-2) 0%, var(--marine) 55%, #071C28 100%);
     color:var(--foam);
-    padding:56px 24px 64px;
+    padding:40px 24px 64px;
     position:relative;
     overflow:hidden;
   }
@@ -55,6 +55,24 @@
     background:radial-gradient(circle, rgba(232,196,104,0.18) 0%, rgba(232,196,104,0) 70%);
   }
   .hero-inner{max-width:920px; margin:0 auto; position:relative; z-index:1;}
+  .hero-identity{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:18px;
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:22px;
+    letter-spacing:0.02em;
+    color:var(--sand);
+    opacity:0.8;
+  }
+  .hero-identity .identity-icon{
+    width:25px;
+    height:25px;
+    flex-shrink:0;
+  }
   .badge-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px;}
   .badge{
     font-family:'IBM Plex Mono',monospace;
@@ -79,6 +97,7 @@
     font-size:76px;
     line-height:1;
     z-index:0;
+    opacity:0.5;
     filter:drop-shadow(0 6px 14px rgba(0,0,0,0.25));
   }
   .hero h1{
@@ -345,6 +364,25 @@
   .legend-flag{width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid var(--flag-green);}
   .legend-flag.red{border-left-color:var(--flag-red);}
   .legend-flag.grey{border-left-color:#B7C4C6;}
+  /* Mini-cases reprenant l'apparence des cellules du calendrier */
+  .legend-cell{
+    flex-shrink:0;
+    width:24px; height:24px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+  }
+  .legend-cell.booked{background:#EEF2F2;}
+  .legend-cell .flag{
+    width:0; height:0;
+    border-top:6px solid transparent;
+    border-bottom:6px solid transparent;
+    border-left:9px solid var(--flag-green);
+  }
+  .legend-cell.booked .flag{border-left-color:#B7C4C6;}
 
   /* ---------- CALENDAR SECTION ---------- */
   .cal-section{max-width:920px; margin:0 auto; padding:0 24px 40px;}
@@ -432,7 +470,7 @@
   .day-cell.selected .flag{border-left-color:var(--sand);}
 
   .open-note{
-    max-width:920px; margin:0 auto 50px; padding:0 24px;
+    max-width:920px; margin:0 auto 22px; padding:0 24px;
   }
   .open-note-inner{
     background:var(--pool-light);
@@ -650,13 +688,19 @@
 
   footer{
     text-align:center;
-    padding:26px 24px 40px;
+    padding:16px 24px 40px;
     font-family:'IBM Plex Mono',monospace;
     font-size:12px;
     color:var(--mist);
   }
   .footer-line{margin-top:8px;}
   .footer-line:first-child{margin-top:0;}
+  /* Coupures du descriptif : desktop = diplômes / activité ;
+     mobile = césure après « Saisons » */
+  .footer-desc .nowrap{white-space:nowrap;}
+  .footer-desc .sep-1{display:none;}
+  .footer-desc .sep-2{display:inline;}
+  .footer-desc .brk-2{display:none;}
   .footer-contact{
     color:var(--pool);
     text-decoration:none;
@@ -672,7 +716,9 @@
 
     /* Hero mobile : bouée + casque réduits et placés dans le flux, centrés
        en bas (plus aucun risque de chevaucher les badges ou le texte) */
-    .hero{padding:44px 20px 30px;}
+    .hero{padding:30px 20px 30px;}
+    .hero-identity{font-size:18px; gap:10px; margin-bottom:14px;}
+    .hero-identity .identity-icon{width:21px; height:21px;}
     .hero-lifebuoy{
       position:static;
       text-align:center;
@@ -713,6 +759,23 @@
     .cart-chips{flex:none; width:100%;}
     .cart-cta{width:100%; text-align:center;}
     body.cart-active{padding-bottom:120px;}
+
+    /* Footer : césure après « Saisons » (au lieu de la coupure desktop) */
+    .footer-desc .sep-1{display:inline;}
+    .footer-desc .brk-1{display:none;}
+    .footer-desc .sep-2{display:none;}
+    .footer-desc .brk-2{display:inline;}
+
+    /* Footer : téléphone + email sur une seule ligne */
+    .footer-contacts{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:nowrap;
+      gap:5px;
+      white-space:nowrap;
+    }
+    .footer-contacts .footer-sep{margin:0;}
   }
   @media (prefers-reduced-motion: reduce){
     .day-cell.available{transition:none;}
@@ -725,6 +788,7 @@
 
 <section class="hero">
   <div class="hero-inner">
+    <div class="hero-identity"><svg class="identity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M5 12h14"/><path d="M12 5c2.4 1.9 2.4 12.1 0 14"/><path d="M12 5c-2.4 1.9 -2.4 12.1 0 14"/><ellipse cx="12" cy="12" rx="10.5" ry="4" transform="rotate(-28 12 12)" stroke-dasharray="1.4 2.2"/><circle cx="21.3" cy="7.1" r="1.15" fill="currentColor" stroke="none"/></svg>Erwan Milbéo</div>
     <div class="badge-row">
       <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>BNSSA</span>
       <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>PSE1</span>
@@ -763,15 +827,15 @@
 </section>
 
 <div class="legend-bar">
-  <div class="legend-item"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--flag-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg> Disponible — cliquez pour réserver</div>
-  <div class="legend-item"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--mist)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> Déjà réservé</div>
+  <div class="legend-item"><span class="legend-cell"><span class="flag"></span></span> Disponible — cliquez pour réserver</div>
+  <div class="legend-item"><span class="legend-cell booked"><span class="flag"></span></span> Déjà réservé</div>
 </div>
 
 <div class="cal-section" id="calendar-root"></div>
 
 <div class="open-note">
   <div class="open-note-inner">
-    À partir d'<strong>avril 2027</strong>, mon agenda est entièrement ouvert. Contactez-moi directement pour caler une date.
+    À partir d'<strong>avril 2027</strong>, mon agenda est entièrement ouvert. Contactez-moi directement pour programmer vos missions.
   </div>
 </div>
 
@@ -844,11 +908,10 @@
 </div>
 
 <footer>
-  <div class="footer-line">
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--pool)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.5"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21"/></svg>
-    Erwan Milbéo — BNSSA · PSE1 · PSE2 — remplacements sauvetage-secourisme, Finistère
+  <div class="footer-line footer-desc">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--pool)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><circle cx="12" cy="12" r="7"/><path d="M5 12h14"/><path d="M12 5c2.4 1.9 2.4 12.1 0 14"/><path d="M12 5c-2.4 1.9 -2.4 12.1 0 14"/><ellipse cx="12" cy="12" rx="10.5" ry="4" transform="rotate(-28 12 12)" stroke-dasharray="1.4 2.2"/><circle cx="21.3" cy="7.1" r="1.15" fill="var(--pool)" stroke="none"/></svg><span class="footer-seg">Erwan Milbéo — BNSSA · PSE1 · PSE2 · Permis bateau</span><span class="sep sep-1"> — </span><br class="brk brk-1"><span class="footer-seg">Remplacements &amp; Saisons</span><span class="sep sep-2"> · </span><br class="brk brk-2"><span class="footer-seg">Sauvetage-Secourisme · Bretagne &amp; <span class="nowrap">France entière</span></span>
   </div>
-  <div class="footer-line">
+  <div class="footer-line footer-contacts">
     <a href="tel:+33650876887" class="footer-contact">
       <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z"/></svg>
       06 50 87 68 87
@@ -857,6 +920,12 @@
     <a href="mailto:em.officiel@pm.me" class="footer-contact">
       <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
       em.officiel@pm.me
+    </a>
+  </div>
+  <div class="footer-line">
+    <a href="https://www.erwan-milbeo-timeshare.com" class="footer-contact" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"/></svg>
+      www.erwan-milbeo-timeshare.com
     </a>
   </div>
 </footer>
