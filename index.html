@@ -386,24 +386,52 @@
 
   /* ---------- CALENDAR SECTION ---------- */
   .cal-section{max-width:920px; margin:0 auto; padding:0 24px 40px;}
-  .month-block{margin-bottom:38px;}
+  .month-block{margin-bottom:24px;}
+  .month-block.collapsed{margin-bottom:8px;}
   .month-title{
-    font-size:26px;
-    color:var(--marine);
+    width:100%;
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin:0 0 14px;
+    padding:10px 16px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#fff;
+    text-align:left;
+    cursor:pointer;
+    transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .month-block.collapsed .month-title{margin-bottom:0;}
+  .month-title:hover{border-color:var(--pool); box-shadow:0 3px 12px rgba(20,125,134,0.13);}
+  .month-title:focus-visible{outline:2px solid var(--pool); outline-offset:2px;}
+  .month-block:not(.collapsed) .month-title{background:var(--pool-light); border-color:var(--pool);}
+  .month-heading{
     display:flex;
     align-items:baseline;
-    gap:10px;
-    margin-bottom:14px;
-    border-bottom:2px solid var(--line);
-    padding-bottom:8px;
+    flex-wrap:wrap;
+    gap:2px 9px;
+    font-family:'Bebas Neue', sans-serif;
+    font-size:23px;
+    letter-spacing:0.03em;
+    line-height:1.05;
+    color:var(--marine);
   }
   .month-count{
     font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    color:var(--mist);
+    font-size:10.5px;
+    font-weight:500;
+    color:var(--pool);
     text-transform:uppercase;
-    letter-spacing:0.05em;
+    letter-spacing:0.04em;
   }
+  .month-caret{flex-shrink:0; width:19px; height:19px; color:var(--mist); transition:transform .2s ease;}
+  .month-title:hover .month-caret,
+  .month-block:not(.collapsed) .month-caret{color:var(--pool);}
+  .month-block.collapsed .month-caret{transform:rotate(-90deg);}
+  .month-block.collapsed .month-body{display:none;}
   .weekdays{
     display:grid;
     grid-template-columns:repeat(7, 1fr);
@@ -712,7 +740,8 @@
   @media (max-width:560px){
     .row2{grid-template-columns:1fr;}
     .day-cell .num{font-size:11px;}
-    .month-title{font-size:22px; flex-wrap:wrap; gap:2px 10px;}
+    .month-title{padding:9px 13px;}
+    .month-heading{font-size:21px;}
 
     /* Hero mobile : bouée + casque réduits et placés dans le flux, centrés
        en bas (plus aucun risque de chevaucher les badges ou le texte) */
@@ -835,7 +864,7 @@
 
 <div class="open-note">
   <div class="open-note-inner">
-    À partir d'<strong>avril 2027</strong>, mon agenda est entièrement ouvert. Contactez-moi directement pour programmer vos missions.
+    À partir de <strong>janvier 2028</strong>, mon agenda est entièrement ouvert. Contactez-moi directement pour programmer vos missions.
   </div>
 </div>
 
@@ -967,6 +996,15 @@
     { year:2027, monthIndex:0,  label:"Janvier 2027",    booked:[16,17] },
     { year:2027, monthIndex:1,  label:"Février 2027",    booked:[6,7,27,28] },
     { year:2027, monthIndex:2,  label:"Mars 2027",       booked:[20,21] },
+    { year:2027, monthIndex:3,  label:"Avril 2027",      booked:[] },
+    { year:2027, monthIndex:4,  label:"Mai 2027",        booked:[] },
+    { year:2027, monthIndex:5,  label:"Juin 2027",       booked:[] },
+    { year:2027, monthIndex:6,  label:"Juillet 2027",    booked:[] },
+    { year:2027, monthIndex:7,  label:"Août 2027",       booked:[] },
+    { year:2027, monthIndex:8,  label:"Septembre 2027",  booked:[] },
+    { year:2027, monthIndex:9,  label:"Octobre 2027",    booked:[] },
+    { year:2027, monthIndex:10, label:"Novembre 2027",   booked:[] },
+    { year:2027, monthIndex:11, label:"Décembre 2027",   booked:[] },
   ];
 
   const weekdayLabels = ["L","M","M","J","V","S","D"];
@@ -984,17 +1022,26 @@
     return (jsDay + 6) % 7; // 0=Mon..6=Sun
   }
 
-  monthsData.forEach(m => {
+  const now = new Date();
+  let expandedIndex = monthsData.findIndex(m => m.year === now.getFullYear() && m.monthIndex === now.getMonth());
+  if(expandedIndex < 0) expandedIndex = 0;
+
+  monthsData.forEach((m, mi) => {
     const total = daysInMonth(m.year, m.monthIndex);
     const available = total - m.booked.length;
 
     const block = document.createElement('div');
-    block.className = 'month-block';
+    block.className = 'month-block' + (mi === expandedIndex ? '' : ' collapsed');
 
-    const title = document.createElement('div');
+    const title = document.createElement('button');
+    title.type = 'button';
     title.className = 'month-title';
-    title.innerHTML = `${m.label} <span class="month-count">${available} jour${available>1?'s':''} disponible${available>1?'s':''}</span>`;
+    title.setAttribute('aria-expanded', mi === expandedIndex ? 'true' : 'false');
+    title.innerHTML = `<span class="month-heading">${m.label} <span class="month-count">${available} jour${available>1?'s':''} disponible${available>1?'s':''}</span></span><svg class="month-caret" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>`;
     block.appendChild(title);
+
+    const body = document.createElement('div');
+    body.className = 'month-body';
 
     const weekdaysRow = document.createElement('div');
     weekdaysRow.className = 'weekdays';
@@ -1003,7 +1050,7 @@
       s.textContent = w;
       weekdaysRow.appendChild(s);
     });
-    block.appendChild(weekdaysRow);
+    body.appendChild(weekdaysRow);
 
     const grid = document.createElement('div');
     grid.className = 'days-grid';
@@ -1037,7 +1084,14 @@
       grid.appendChild(cell);
     }
 
-    block.appendChild(grid);
+    body.appendChild(grid);
+    block.appendChild(body);
+
+    title.addEventListener('click', () => {
+      const collapsed = block.classList.toggle('collapsed');
+      title.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    });
+
     root.appendChild(block);
   });
 

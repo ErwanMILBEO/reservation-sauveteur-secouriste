@@ -5,6 +5,10 @@
 
 ## Changelog
 
+- **2026-08-06 (4)** — Calendrier en accordéon (mois courant ouvert, autres
+  repliés), étendu jusqu'à décembre 2027 ; refonte graphique des titres de mois
+  (cartes Bebas) ; bandeau bleu → janvier 2028 ; lien footer → erwan-milbeo.com.
+  Déployé.
 - **2026-08-06 (3)** — Identité « Erwan Milbéo » + icône globe-trotteur ;
   atténuation emojis (50%) ; légende façon cellules calendrier ; footer refondu
   (logo, descriptif 2 lignes desktop / césure mobile, contacts 1 ligne, lien
@@ -14,6 +18,38 @@
   contrat flashy + popup « Voir conditions ». Déployé.
 - **2026-08-06 (1)** — Correction de l'affichage mobile (hero + panier fixe) ;
   création de PROJECT.md et HANDOFF.md.
+
+---
+
+## 2026-08-06 (4) — Calendrier accordéon + extension déc. 2027
+
+### Modifs livrées
+1. **Calendrier en accordéon** : chaque mois est repliable/dépliable au clic sur
+   son titre (titres = `<button>`, `aria-expanded`, accessibles clavier ; corps
+   dans `.month-body`, masqué via `.month-block.collapsed`). Le **mois courant**
+   est ouvert par défaut, les autres repliés — détection dynamique via
+   `new Date()` (repli sur le 1er mois si hors plage). Toggles indépendants.
+2. **Calendrier étendu jusqu'à décembre 2027** : ajout d'avril→décembre 2027
+   dans `monthsData`, tous `booked:[]` (entièrement disponibles, validé par
+   Erwan).
+3. **Refonte graphique des titres de mois** (le rendu par défaut était jugé trop
+   austère/immense) : cartes arrondies (`.month-title` en flex, bordure + radius,
+   fond blanc), **libellé en Bebas Neue** (accents É/Û OK), taille réduite
+   (23px desktop / 21px mobile), compteur en turquoise (`--pool`), chevron
+   pivotant. **Mois ouvert surligné** `--pool-light` + bordure `--pool` ; hover
+   = bordure turquoise + ombre douce.
+4. **Bandeau bleu** décalé : « À partir de **janvier 2028**… » (puisque le
+   calendrier couvre désormais jusqu'à déc. 2027).
+5. **Footer** : lien du site → **www.erwan-milbeo.com** (nouveau domaine acheté
+   par Erwan ; remplace l'ancien `-timeshare.com`).
+
+### Vérifs
+- Accordéon testé (dépli/repli), mois courant ouvert, 360/390/414 + desktop,
+  aucun débordement, aucune erreur console.
+
+### Suite annoncée
+- Construire une **page sur le domaine `erwan-milbeo.com`** (achat fait). Config
+  domaine perso GitHub Pages à prévoir si on veut y héberger un site.
 
 ---
 
