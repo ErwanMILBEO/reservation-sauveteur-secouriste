@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Disponibilités — Sauveteur aquatique BNSSA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --marine:#0A2A3B;
@@ -71,6 +71,8 @@
     gap:6px;
   }
   .badge svg{flex-shrink:0;}
+  /* Force les badges géographiques sur une 2e ligne (sous la bouée) */
+  .badge-break{flex-basis:100%; height:0;}
   .hero-lifebuoy{
     position:absolute;
     top:-10px; right:0px;
@@ -91,6 +93,86 @@
     color:#CFE3E4;
     margin-top:18px;
   }
+  .hero-offers{
+    list-style:none;
+    margin:20px 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+  }
+  .hero-offers li{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:16px;
+    font-weight:500;
+    letter-spacing:0.02em;
+    color:var(--foam);
+  }
+  .hero-offers .offer-arrow{
+    flex-shrink:0;
+    width:26px; height:26px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(232,196,104,0.14);
+    color:var(--sand);
+  }
+  .hero-offers .offer-arrow svg{display:block;}
+  .hero-venues{
+    list-style:none;
+    margin:14px 0 0;
+    padding:0;
+    max-width:56ch;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 26px;
+  }
+  .hero-venues li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    color:#DCEAEB;
+  }
+  .hero-venues li::before{
+    content:"";
+    flex-shrink:0;
+    width:0; height:0;
+    border-top:5px solid transparent;
+    border-bottom:5px solid transparent;
+    border-left:8px solid var(--flag-green);
+  }
+  .scroll-cta{
+    display:flex;
+    width:fit-content;
+    max-width:100%;
+    align-items:center;
+    gap:13px;
+    margin-top:30px;
+    text-decoration:none;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:25px;
+    letter-spacing:0.03em;
+    color:var(--sand);
+    transition:opacity .15s ease;
+  }
+  .scroll-cta:hover{opacity:0.85;}
+  .scroll-cta .arrow-down{
+    flex-shrink:0;
+    width:36px; height:36px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    border:1.5px solid var(--sand);
+    background:rgba(232,196,104,0.1);
+    animation:cta-bob 1.9s ease-in-out infinite;
+  }
+  @keyframes cta-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
   .status-strip{
     margin-top:32px;
     display:flex;
@@ -101,19 +183,145 @@
     color:#CFE3E4;
   }
   .contract-note{
-    margin-top:18px;
-    display:inline-flex;
+    position:relative;
+    margin-top:22px;
+    display:flex;
+    width:fit-content;
+    max-width:100%;
+    box-sizing:border-box;
     align-items:center;
-    gap:8px;
-    padding:7px 15px;
-    border:1px solid var(--sand);
-    border-radius:20px;
-    background:rgba(232,196,104,0.1);
+    gap:11px;
+    padding:11px 18px;
+    border:1px solid rgba(232,196,104,0.6);
+    border-radius:16px;
+    background:linear-gradient(150deg, rgba(232,196,104,0.22) 0%, rgba(232,196,104,0.06) 60%, rgba(232,196,104,0.12) 100%);
     color:var(--sand);
     font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    letter-spacing:0.05em;
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.28),
+      inset 0 -2px 6px rgba(0,0,0,0.22),
+      0 6px 16px -4px rgba(0,0,0,0.4),
+      0 0 22px -2px rgba(232,196,104,0.5),
+      0 0 0 4px rgba(232,196,104,0.07);
+    animation:note-halo 3.2s ease-in-out infinite;
   }
+  @keyframes note-halo{
+    0%,100%{box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.28),
+      inset 0 -2px 6px rgba(0,0,0,0.22),
+      0 6px 16px -4px rgba(0,0,0,0.4),
+      0 0 22px -2px rgba(232,196,104,0.5),
+      0 0 0 4px rgba(232,196,104,0.07);}
+    50%{box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.32),
+      inset 0 -2px 6px rgba(0,0,0,0.22),
+      0 8px 20px -4px rgba(0,0,0,0.45),
+      0 0 34px 2px rgba(232,196,104,0.7),
+      0 0 0 5px rgba(232,196,104,0.12);}
+  }
+  .contract-note svg{flex-shrink:0;}
+  .contract-note .nowrap{white-space:nowrap;}
+  .contract-more{
+    flex-shrink:0;
+    appearance:none;
+    border:none;
+    cursor:pointer;
+    background:var(--sand);
+    color:var(--marine);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:6px 12px;
+    border-radius:20px;
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.3);
+    transition:filter .15s ease, transform .1s ease;
+  }
+  .contract-more:hover{filter:brightness(1.08);}
+  .contract-more:active{transform:translateY(1px);}
+  .contract-more svg{width:13px;height:13px;}
+
+  /* ---------- MODAL CONDITIONS ---------- */
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:rgba(7,28,40,0.62);
+    backdrop-filter:blur(3px);
+    padding:24px;
+    align-items:center;
+    justify-content:center;
+  }
+  .modal-overlay.show{display:flex;}
+  .modal{
+    position:relative;
+    width:100%;
+    max-width:520px;
+    max-height:85vh;
+    overflow-y:auto;
+    background:var(--foam);
+    border:1px solid var(--line);
+    border-top:4px solid var(--sand);
+    border-radius:14px;
+    padding:28px 26px 26px;
+    box-shadow:0 24px 60px rgba(7,28,40,0.5);
+  }
+  .modal h3{
+    font-size:24px;
+    color:var(--marine);
+    margin-bottom:4px;
+  }
+  .modal .modal-sub{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--pool);
+    margin:0 0 16px;
+  }
+  .modal-body h4{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--marine);
+    margin:16px 0 6px;
+  }
+  .modal-body p{font-size:14px; color:var(--ink); margin:0 0 10px;}
+  .modal-body .modal-note{
+    font-style:italic;
+    font-weight:300;
+    font-size:12.5px;
+    color:var(--mist);
+    margin-top:14px;
+  }
+  .modal-body .placeholder-flag{
+    font-size:12px;
+    color:var(--flag-red);
+    background:var(--flag-red-dim);
+    border-radius:6px;
+    padding:8px 10px;
+    margin-top:14px;
+  }
+  .modal-close{
+    position:absolute;
+    top:14px; right:14px;
+    background:none;
+    border:none;
+    font-size:22px;
+    line-height:1;
+    color:var(--mist);
+    cursor:pointer;
+    padding:4px;
+  }
+  .modal-close:hover{color:var(--marine);}
   .pole{
     width:2px; height:34px; background:#CFE3E4; opacity:0.5;
   }
@@ -462,10 +670,30 @@
     .day-cell .num{font-size:11px;}
     .month-title{font-size:22px; flex-wrap:wrap; gap:2px 10px;}
 
-    /* Hero : la bouée décorative passait derrière les badges translucides
-       et les rendait illisibles sur petit écran → masquée en mobile */
-    .hero{padding:44px 20px 52px;}
-    .hero-lifebuoy{display:none;}
+    /* Hero mobile : bouée + casque réduits et placés dans le flux, centrés
+       en bas (plus aucun risque de chevaucher les badges ou le texte) */
+    .hero{padding:44px 20px 30px;}
+    .hero-lifebuoy{
+      position:static;
+      text-align:center;
+      font-size:37px;
+      margin:22px 0 2px;
+    }
+    .hero-venues{grid-template-columns:1fr; gap:8px; margin-top:12px;}
+    .scroll-cta{font-size:22px; margin-top:24px; gap:11px;}
+    .scroll-cta .arrow-down{width:32px; height:32px;}
+    /* Bloc contrat : bouton sur sa propre ligne pour ne pas déborder */
+    .contract-note{display:flex; flex-wrap:wrap; width:100%; box-sizing:border-box;}
+    .contract-note .contract-label{flex:1 1 auto;}
+    .contract-more{flex-basis:100%; justify-content:center; margin-top:4px;}
+    /* Badges resserrés pour que Finistère · Bretagne + France entière
+       tiennent côte à côte sur une seule ligne */
+    .badge-row{gap:5px;}
+    .badge{font-size:10px; padding:4px 6px; letter-spacing:0.03em; gap:4px;}
+    .badge svg{width:12px; height:12px;}
+    .hero-offers{gap:9px; margin-top:18px;}
+    .hero-offers li{font-size:14px; gap:9px;}
+    .hero-offers .offer-arrow{width:23px; height:23px;}
 
     /* Marges latérales resserrées pour gagner de la largeur utile */
     .legend-bar,
@@ -488,6 +716,8 @@
   }
   @media (prefers-reduced-motion: reduce){
     .day-cell.available{transition:none;}
+    .scroll-cta .arrow-down{animation:none;}
+    .contract-note{animation:none;}
   }
 </style>
 </head>
@@ -499,15 +729,36 @@
       <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>BNSSA</span>
       <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>PSE1</span>
       <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>PSE2</span>
+      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><line x1="12" y1="22" x2="12" y2="7.5"/><path d="M5 12H3a9 9 0 0 0 18 0h-2"/></svg>Permis bateau</span>
+      <span class="badge-break" aria-hidden="true"></span>
       <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Finistère · Bretagne</span>
+      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.4 3.9 5.6 3.9 9s-1.4 6.6-3.9 9c-2.5-2.4-3.9-5.6-3.9-9S9.5 5.4 12 3z"/></svg>France entière</span>
     </div>
-    <div class="hero-lifebuoy" aria-hidden="true">🛟 ⛑️</div>
-    <h1>NAGEUR-SAUVETEUR-SECOURISTE <span class="accent">Disponible à la demande</span></h1>
-    <p class="lede">Surveillant de baignade, sauveteur et secouriste diplômé, disponible pour vos remplacements : piscines, thalassothérapies, lacs, étangs, centres de loisir, campings, compétitions sportives, événements, concerts, festivals, manifestations diverses. Réservez un créneau libre ci-dessous.</p>
+    <h1>NAGEUR-SAUVETEUR-SECOURISTE<br><span class="accent">Disponible</span></h1>
+    <ul class="hero-offers">
+      <li><span class="offer-arrow"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="18" y2="12"/><polyline points="12 6 18 12 12 18"/></svg></span>Remplacements à la demande</li>
+      <li><span class="offer-arrow"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="18" y2="12"/><polyline points="12 6 18 12 12 18"/></svg></span>Saisons complètes</li>
+    </ul>
+    <p class="lede">Surveillant, sauveteur et secouriste diplômé, disponible pour vos remplacements ponctuels et vos saisons :</p>
+    <ul class="hero-venues">
+      <li>Piscines publiques et privées</li>
+      <li>Thalassothérapies</li>
+      <li>Hôtels &amp; Appart-hôtels</li>
+      <li>Lacs</li>
+      <li>Centres de loisir</li>
+      <li>Campings</li>
+      <li>Compétitions sportives</li>
+      <li>Événements, concerts, festivals, manifestations…</li>
+    </ul>
     <div class="contract-note">
       <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5"/><path d="M9 14l2 2 4-4"/></svg>
-      Contrats salariés ou auto-entrepreneur
+      <span class="contract-label">Contrats salariés ou <span class="nowrap">facturation</span></span>
+      <button type="button" class="contract-more" id="open-conditions">Voir conditions
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
     </div>
+    <div class="hero-lifebuoy" aria-hidden="true">🛟 ⛑️</div>
+    <a class="scroll-cta" href="#calendar-root">Réservez votre créneau libre ci-dessous<span class="arrow-down"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/></svg></span></a>
   </div>
 </section>
 
@@ -609,6 +860,23 @@
     </a>
   </div>
 </footer>
+
+<div class="modal-overlay" id="conditions-modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="conditions-title">
+    <button type="button" class="modal-close" id="close-conditions" aria-label="Fermer">✕</button>
+    <h3 id="conditions-title">Conditions d'intervention</h3>
+    <p class="modal-sub">Salarié ou facturation</p>
+    <div class="modal-body">
+      <h4>Contrat salarié</h4>
+      <p>Intervention en tant que salarié (CDD, vacation, contrat saisonnier) selon les besoins de votre structure. Base taux horaires conventionné ou négocié.</p>
+      <h4>Facturation</h4>
+      <p>Intervention en prestation de service avec facturation, pour vos remplacements ponctuels comme pour vos saisons. Tarif selon la mission, la période, la durée et la zone géographique.</p>
+      <h4>Zone &amp; disponibilités</h4>
+      <p>Finistère · Bretagne ou France entière selon la mission. Tarifs et disponibilités précis communiqués sur demande via le formulaire de réservation.</p>
+      <p class="modal-note">* Possibilité de complément frais kilométriques et/ou hébergement en fonction de la nature de la demande.</p>
+    </div>
+  </div>
+</div>
 
 <div id="sticky-cart" class="sticky-cart">
   <div class="cart-chips" id="cart-chips"></div>
@@ -815,6 +1083,26 @@ ${message}`;
       btn.textContent = 'Copié ✓';
       setTimeout(() => { btn.textContent = original; }, 2000);
     });
+  });
+
+  // ----- Popup "Voir conditions" -----
+  const conditionsModal = document.getElementById('conditions-modal');
+  function openConditions(){
+    conditionsModal.classList.add('show');
+    conditionsModal.setAttribute('aria-hidden', 'false');
+    document.getElementById('close-conditions').focus();
+  }
+  function closeConditions(){
+    conditionsModal.classList.remove('show');
+    conditionsModal.setAttribute('aria-hidden', 'true');
+  }
+  document.getElementById('open-conditions').addEventListener('click', openConditions);
+  document.getElementById('close-conditions').addEventListener('click', closeConditions);
+  conditionsModal.addEventListener('click', (e) => {
+    if(e.target === conditionsModal){ closeConditions(); }
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && conditionsModal.classList.contains('show')){ closeConditions(); }
   });
 </script>
 

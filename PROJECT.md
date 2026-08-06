@@ -68,9 +68,14 @@ touches sable/or, drapeaux de plage (vert = ok, rouge = interdit).
 - `Inter` → texte courant et champs de formulaire.
 
 **Composants clés** : hero à dégradé radial + bouée/casque décoratifs ;
-badges de diplômes ; légende ; grille calendrier (cellules `aspect-ratio:1/1`,
-drapeau + numéro) ; panier fixe bas d'écran (`.sticky-cart`) ; panneau de
-réservation (`#booking-panel`) ; bloc de confirmation (`#confirmation-box`).
+badges (diplômes + zones) ; arguments `.hero-offers` (flèches) ; liste des
+lieux `.hero-venues` (drapeaux verts) ; CTA `.scroll-cta` (Bebas doré + flèche
+animée vers `#calendar-root`) ; widget contrat `.contract-note` (halo doré 3D)
+avec bouton « Voir conditions » ouvrant la popup `#conditions-modal` (fermeture
+croix / overlay / Échap) ; légende ; grille calendrier (cellules
+`aspect-ratio:1/1`, drapeau + numéro) ; panier fixe bas d'écran
+(`.sticky-cart`) ; panneau de réservation (`#booking-panel`) ; bloc de
+confirmation (`#confirmation-box`).
 
 **Responsive** : point de rupture unique `@media (max-width:560px)` regroupant
 tous les ajustements mobiles. Le desktop ne doit jamais être impacté par un
@@ -81,6 +86,8 @@ correctif mobile (et inversement).
 - ✅ Page fonctionnelle en production sur GitHub Pages.
 - ✅ Calendrier août 2026 → mars 2027 ; agenda « ouvert » à partir d'avril 2027.
 - ✅ Affichage mobile audité et corrigé (360 / 390 / 414 px) — voir HANDOFF.md.
+- ✅ Hero refondu (badges Permis bateau + France entière, titre + arguments,
+  liste des lieux, CTA animé, widget contrat + popup « Voir conditions »).
 
 ## 6. Points ouverts / à surveiller
 

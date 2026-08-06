@@ -5,8 +5,59 @@
 
 ## Changelog
 
-- **2026-08-06** — Correction de l'affichage mobile (hero + panier fixe) ;
+- **2026-08-06 (2)** — Refonte du hero : badges Permis bateau + France entière,
+  nouveau titre + arguments, liste des lieux, CTA « Réservez » animé, widget
+  contrat flashy + popup « Voir conditions ». Déployé.
+- **2026-08-06 (1)** — Correction de l'affichage mobile (hero + panier fixe) ;
   création de PROJECT.md et HANDOFF.md.
+
+---
+
+## 2026-08-06 (2) — Refonte du hero (contenu + design)
+
+Session itérative validée pas à pas avec Erwan (visuel confirmé sur localhost
+avant push). Tout est responsive desktop + mobile (360/390/414). Un seul
+déploiement groupé en fin de session.
+
+### Modifs livrées
+1. **Bouée + casque (🛟⛑️)** : masquée puis, sur demande, conservée en mobile
+   mais réduite (37px) et centrée dans le flux en bas du hero (avant : absolue,
+   chevauchait les badges). Desktop inchangé (76px, haut-droite).
+2. **Badge « France entière »** ajouté à côté de « Finistère · Bretagne ».
+3. **Badge « Permis bateau »** (icône ancre) ajouté après PSE2. Badges réduits
+   en mobile (font 10px) pour tenir : ligne 1 = 4 diplômes, ligne 2 = 2 zones.
+   Saut de ligne forcé via `.badge-break` (les zones passent sous la bouée
+   desktop, évitant le chevauchement).
+4. **Titre** : « NAGEUR-SAUVETEUR-SECOURISTE Disponible » (Disponible en doré,
+   `<br>` pour l'isoler) + liste `.hero-offers` (flèches dorées en pastille) :
+   Remplacements à la demande / Saisons complètes.
+5. **Paragraphe** remplacé par : intro courte + `.hero-venues` (grille 2 col
+   desktop / 1 col mobile, puces = petit drapeau vert de plage) listant les
+   8 types de lieux + **CTA `.scroll-cta`** « Réservez votre créneau libre
+   ci-dessous » (Bebas doré + flèche ronde animée `cta-bob`, lien vers
+   `#calendar-root`).
+6. **Widget contrat** (`.contract-note`) : refonte flashy — halo doré animé
+   (`note-halo`), relief 3D (ombres inset). « auto-entrepreneur » → **remplacé
+   partout par « facturation »** ; « facturation » protégé du retour à la ligne
+   (`.nowrap`). Bouton **« Voir conditions »** ouvrant une **popup** (`.modal`,
+   `#conditions-modal`) : ouverture/fermeture par bouton, croix, clic overlay,
+   touche Échap. Contenu réel fourni par Erwan (contrat salarié / facturation /
+   zone & disponibilités + note frais kilométriques en italique light).
+7. **Bug écran large** : widget contrat et CTA « Réservez » étaient côte à côte
+   (2 `inline-flex`). Corrigé en `display:flex; width:fit-content` → deux lignes
+   distinctes à toutes les largeurs.
+
+### Détails techniques
+- Police Inter : ajout du poids **300** à l'import Google Fonts (pour le
+  « light » de la note de frais).
+- Toutes les animations respectent `prefers-reduced-motion` (halo, flèche CTA).
+- Aucun débordement horizontal vérifié à 360/390/414. Aucune erreur console.
+
+### Reste à faire / idées
+- Rien de bloquant. Contenu de la popup = version validée par Erwan.
+- Toujours en attente à terme : mettre à jour les jours `booked` de
+  `monthsData` au fil des réservations ; confirmer que `CONTACT_EMAIL` est une
+  boîte relevée.
 
 ---
 
