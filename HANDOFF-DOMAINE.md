@@ -191,9 +191,19 @@ rédigées, plus aucun placeholder (voir changelog 2026-08-08). Rien n'est encor
 
 ✅ **1. SEO / AEO « Erwan Milbéo » : FAIT (09/08).** Voir changelog 2026-08-09.
 ✅ **2. Déploiement : FAIT (09/08)** via `git push origin main`.
-🔲 **3. Connexion DNS Namecheap** (ci-dessous) — PROCHAINE ÉTAPE.
-🔲 **4. Vérif des 2 URLs cibles + non-régression réservation** (après propagation DNS).
-🔲 **+ Google Search Console** : vérif de propriété + envoi de `sitemap.xml`.
+✅ **3. DNS Namecheap + HTTPS : FAIT (09/08).** 4 A apex + CNAME www posés, cert Let's Encrypt
+   émis, **Enforce HTTPS activé**. `erwan-milbeo.com` → 301 vers `www` ; `http` → 301 `https`.
+   ⚠️ Le certificat a mis ~1 h 40 sans se lancer → **déclencheur qui a marché : retirer puis
+   re-brancher le custom domain** (via `gh api PUT .../pages -f cname=''` puis `-f cname=www…`),
+   ce qui a fait passer le cert en `authorization_pending` → `approved` en quelques minutes.
+   (GitHub recrée le fichier CNAME tout seul ; 2 commits auto en résultent → `git pull`.)
+✅ **4. Vérif des 2 URLs + non-régression réservation : FAIT** (home + `/nageur-sauveteur-secouriste/`
+   en 200 HTTPS).
+✅ **Google Search Console** : propriété Domaine `erwan-milbeo.com` **vérifiée** (TXT), sitemap soumis.
+✅ **Bing Webmaster Tools** : site **vérifié** (CNAME `verify.bing.com`), sitemap soumis (→ circuit IA
+   ChatGPT/Copilot). (L'import GSC ne voit pas les propriétés « Domaine » → ajout manuel + DNS.)
+
+**Chantier domaine erwan-milbeo.com : TERMINÉ (09/08/2026).**
 
 <details><summary>Détail initial de l'étape 1 (conservé pour mémoire)</summary>
 
