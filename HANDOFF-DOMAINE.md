@@ -238,6 +238,35 @@ pendant une panne GitHub Pages avérée.
 
 ## 8. Changelog du chantier
 
+### 2026-08-09 (2) — HOME : montage photo (fond « vague » + vignette « LA VISION »)
+Ajout de deux visuels perso sur la home (`index.html` racine), validés sur localhost puis
+déployés. **« Pas parfait mais bien mieux — on y reviendra un jour »** (mot d'Erwan) : état
+accepté mais **à ré-affiner plus tard**.
+
+- **Fond du hero (carte `.area-intro`)** : photo d'une **vague déchaînée** (Bretagne) en
+  calque `.hero-photo` (absolute, `z-index:0`, contenu passé en `z-index:1`, `.area-intro`
+  en `isolation:isolate`). `background:url('hero-wave.jpg') 52% 40% / cover`, **`opacity:0.22`**,
+  **mask radial** `radial-gradient(125% 135% at 58% 42%, #000 42%, transparent 86%)` → bords
+  fondus, texte lisible. Fichier `hero-wave.jpg` (1500px, généré via `sips` depuis
+  `photos-src/wave-source.png`).
+- **Vignette « LA VISION »** : petit **exposant** sur « Milbéo » (`<sup class="name-badge">`
+  dans le `<h1 class="intro-name">`). Photo d'Erwan sur un bateau faisant le **geste de
+  cadrage (« la vision »)**. Effet demandé : **centre net (lui + le geste) + flou progressif
+  vers l'extérieur qui meurt à zéro en transparence** (dissolution, aucun contour de cercle).
+  → **Effet baké dans un PNG RGBA** (`erwan-vignette.png`, 800px) via **PIL/numpy** : 3 niveaux
+  (net / flou léger `GaussianBlur 8` / flou fort `GaussianBlur 22`) fondus par masques radiaux
+  (`band(0.60,0.82)` net, `band(0.82,0.95)` couronne) + **alpha `band(0.82,1.0)`** qui s'éteint
+  au bord. Source = **`photos-src/vision-nette-source.png`** (le cadrage « nette » large choisi
+  par Erwan ; recadré carré centré). Taille d'affichage **56px desktop / 44px mobile**, CSS
+  `.name-badge` (pas de `border-radius` ni de mask CSS : l'alpha est dans le PNG).
+- **Sources conservées** dans **`photos-src/`** (`wave-source.png`, `vision-full-source.png`,
+  `vision-nette-source.png`) pour pouvoir **retravailler le montage plus tard** sans redemander
+  les fichiers.
+- **Pistes écartées en route** : filigrane de la photo « café » (trop sombre/scène large,
+  supprimé) ; détourage fond transparent (option A) non retenue pour l'instant.
+- ⏳ **À ré-affiner « un jour »** : cadrage/opacité de la vague, taille/flou/position de la
+  vignette. Tout est paramétrable dans `.hero-photo` / `.name-badge` + régénération PNG PIL.
+
 ### 2026-08-09 — SEO / AEO (mot-clé « Erwan Milbéo », FR) + DÉPLOIEMENT
 Optimisation référencement (moteurs classiques + IA/AEO), périmètre validé par Erwan :
 **FR only**, **un seul mot-clé « Erwan Milbéo »**, **pas de `sameAs`** (réseaux) ni de

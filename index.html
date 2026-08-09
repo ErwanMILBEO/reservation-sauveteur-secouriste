@@ -171,7 +171,17 @@ a.card:hover .cta{gap:14px;}
   box-shadow:0 14px 40px -22px rgba(10,42,59,.28);
   flex-direction:row; align-items:flex-start; gap:34px;
   padding:34px 38px;
+  isolation:isolate;
 }
+.hero-photo{
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:url('hero-wave.jpg') 52% 40% / cover no-repeat;
+  opacity:0.22;
+  -webkit-mask-image:radial-gradient(125% 135% at 58% 42%, #000 42%, rgba(0,0,0,0) 86%);
+          mask-image:radial-gradient(125% 135% at 58% 42%, #000 42%, rgba(0,0,0,0) 86%);
+}
+.area-intro .intro-emblem, .area-intro .intro-body{position:relative; z-index:1;}
+.area-intro .lang-switch{z-index:2;}
 .intro-emblem{
   flex:0 0 auto; width:112px; height:112px; border-radius:26px;
   display:grid; place-items:center;
@@ -189,6 +199,11 @@ a.card:hover .cta{gap:14px;}
 .intro-name{
   font-family:'Cormorant Garamond',serif; font-weight:600;
   font-size:46px; line-height:1; color:rgba(22,50,63,.8); letter-spacing:.01em;
+}
+.name-badge{
+  display:inline-block; width:56px; height:56px; margin-left:2px;
+  vertical-align:0.28em;
+  background:url('erwan-vignette.png') center / cover no-repeat;
 }
 .intro-role{color:var(--pool); margin-top:8px;}
 .intro-bio{color:#3d5a63; margin-top:24px; max-width:none;}
@@ -367,6 +382,7 @@ a.card.area-save:hover{transform:translateY(-4px); box-shadow:0 28px 55px -24px 
   .intro-emblem{width:88px; height:88px; border-radius:22px;}
   .intro-emblem svg{width:62px; height:62px;}
   .intro-name{font-size:38px;}
+  .name-badge{width:44px; height:44px; margin-left:1px; vertical-align:0.28em;}
   .hero-baseline{font-size:17px;}
   .lang-switch{top:14px; right:14px;}
   .section-lead{gap:6px 14px; letter-spacing:.12em; font-size:11px; margin:20px 4px 16px;}
@@ -388,6 +404,7 @@ a.card.area-save:hover{transform:translateY(-4px); box-shadow:0 28px 55px -24px 
 
     <!-- 1 · PRÉSENTATION -->
     <section class="card area-intro">
+      <div class="hero-photo" aria-hidden="true"></div>
       <div class="lang-switch" role="group" aria-label="Langue / Language">
         <button type="button" class="lang-btn" data-lang="fr" aria-pressed="true">FR</button>
         <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
@@ -412,7 +429,7 @@ a.card.area-save:hover{transform:translateY(-4px); box-shadow:0 28px 55px -24px 
         </svg>
       </div>
       <div class="intro-body">
-        <h1 class="intro-name"><span class="nm-first">Erwan&nbsp;</span>Milbéo</h1>
+        <h1 class="intro-name"><span class="nm-first">Erwan&nbsp;</span>Milbéo<sup class="name-badge" aria-hidden="true"></sup></h1>
         <div class="hero-baseline">“Many roles. One freedom.”</div>
         <div class="intro-bio" data-i18n="hero.bio"><p class='bio-lead'>Au-delà de la créativité, une conviction : on ne bâtit rien de grand l'esprit encombré. La performance naît d'abord de l'équilibre — un esprit sain dans un corps sain, avec le sport comme discipline quotidienne, le contact humain du terrain et se rendre utile aux autres ; jusqu'à sauver des vies…</p><p class='bio-close'>Serial entrepreneur depuis 1991, Erwan évolue à l'intersection de l'immobilier international et des nouvelles technologies. Fondateur et dirigeant de sociétés en France, Italie, Espagne, Grande-Bretagne et Bahreïn — jusqu'à 300 salariés à travers le monde —, il crée, dirige et détient des entreprises à l'échelle internationale depuis plus de trente-cinq ans.</p><p class='bio-sign'>Libérer le corps et l'esprit laisse la vision respirer.</p></div>
       </div>
