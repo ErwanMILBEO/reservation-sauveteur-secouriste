@@ -5,6 +5,22 @@
 
 ## Changelog
 
+- **2026-08-09 (2)** — **Confirmation d'envoi + grisage des dates demandées.**
+  *Bug 1* : la box de confirmation ne se lisait pas comme un accusé d'envoi
+  (titre « Demande prête », discret). → Titre **« Demande envoyée »**, **encadré
+  foncé** (fond marine dégradé `--marine`→`--marine-2`, bordure `--sand` 2px,
+  ombre), **titre ambre en Bebas Neue** + coche verte, texte en `--foam`, `<pre>`
+  récap sur fond translucide, **bouton « Copier » doré** (`--sand`) et liens de
+  repli en ambre. Texte reformulé (« …prête à partir — il ne reste plus qu'à
+  cliquer **Envoyer**… »). *Bug 2* : à l'envoi, les dates demandées passent en
+  **grisé « déjà réservé »** (`markSelectedAsRequested()` : retire `selected`,
+  ajoute `booked`), rendues **non-cliquables** via garde en tête de `toggleDay`
+  (`return` si `.booked`) ; **panier vidé** + **sticky-cart masqué** sans masquer
+  la confirmation ; la box se referme à une nouvelle sélection / au `close-panel`.
+  ⚠️ **Grisage local au visiteur, non persistant** (rechargement → dispo). Le vrai
+  blocage/déblocage = édition manuelle de `booked`. Aucun style mobile ajouté
+  (réutilise `.booked` + `.confirmation-box`). Vérifié desktop + mobile 375 (aucun
+  débordement, 0 erreur console). Déployé (`8151adb`).
 - **2026-08-09** — **Header + footer : logo remplacé par l'emblème ME** de
   erwan-milbeo.com (carré turquoise + monogramme ME blanc + mappemonde ambre, SVG inline
   self-contained), en remplacement de l'ancienne icône globe-trotteur. **Header : trait
