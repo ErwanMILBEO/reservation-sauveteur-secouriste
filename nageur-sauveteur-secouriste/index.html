@@ -678,28 +678,33 @@
   .confirmation-box{
     display:none;
     margin-top:22px;
-    padding:20px 22px;
-    background:var(--pool-light);
-    border:1px solid var(--pool);
-    border-radius:10px;
+    padding:22px 24px;
+    background:linear-gradient(160deg, var(--marine) 0%, var(--marine-2) 100%);
+    border:2px solid var(--sand);
+    border-radius:12px;
+    box-shadow:0 12px 30px rgba(10,42,59,0.30), inset 0 0 0 1px rgba(232,196,104,0.14);
   }
   .confirmation-box.show{display:block;}
   .confirmation-box h4{
-    font-size:20px;
-    color:var(--marine);
-    margin-bottom:8px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;
+    letter-spacing:0.02em;
+    color:var(--sand);
+    margin-bottom:10px;
   }
   .confirmation-box p{
     font-size:13px;
-    color:var(--ink);
+    color:var(--foam);
     margin:0 0 12px;
   }
+  .confirmation-box p strong{color:var(--sand);}
   #confirmation-text{
     font-family:'IBM Plex Mono',monospace;
     font-size:12px;
     white-space:pre-wrap;
-    background:#fff;
-    border:1px solid var(--line);
+    color:var(--foam);
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(232,196,104,0.35);
     border-radius:6px;
     padding:12px 14px;
     max-height:220px;
@@ -708,8 +713,8 @@
   }
   .confirmation-actions{display:flex; gap:12px; flex-wrap:wrap;}
   .copy-btn{
-    background:var(--marine);
-    color:var(--foam);
+    background:var(--sand);
+    color:var(--marine);
     border:none;
     font-family:'IBM Plex Mono',monospace;
     text-transform:uppercase;
@@ -719,7 +724,7 @@
     border-radius:6px;
     cursor:pointer;
   }
-  .copy-btn:hover{background:var(--pool);}
+  .copy-btn:hover{background:#F0D488;}
   .mailto-fallback{
     display:inline-flex;
     align-items:center;
@@ -727,7 +732,7 @@
     text-transform:uppercase;
     letter-spacing:0.05em;
     font-size:12px;
-    color:var(--pool);
+    color:var(--sand);
     text-decoration:none;
     padding:11px 4px;
   }
@@ -960,9 +965,9 @@
     <div id="confirmation-box" class="confirmation-box">
       <h4>
         <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="var(--flag-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><circle cx="12" cy="12" r="9"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg>
-        Demande prête
+        Demande envoyée
       </h4>
-      <p>Une fenêtre Gmail a dû s'ouvrir dans un nouvel onglet avec la demande pré-remplie. Si ce n'est pas le cas, utilisez l'un des boutons ci-dessous, ou copiez le message et envoyez-le vous-même à <strong id="confirmation-email"></strong>.</p>
+      <p>Votre demande vient de s'ouvrir dans votre messagerie, prête à partir — il ne reste plus qu'à cliquer <strong>Envoyer</strong>. Si la fenêtre ne s'est pas ouverte, utilisez l'un des boutons ci-dessous, ou copiez le message et envoyez-le à <strong id="confirmation-email"></strong>.</p>
       <pre id="confirmation-text"></pre>
       <div class="confirmation-actions">
         <a id="gmail-fallback" href="#" target="_blank" class="mailto-fallback">Ouvrir dans Gmail</a>
@@ -1133,6 +1138,8 @@
   });
 
   function toggleDay(year, monthIndex, day, key){
+    // Une date déjà demandée (grisée) n'est plus sélectionnable
+    if(cellRegistry[key] && cellRegistry[key].classList.contains('booked')){ return; }
     const idx = selectedDates.findIndex(sd => sd.key === key);
     if(idx >= 0){
       selectedDates.splice(idx, 1);
@@ -1140,6 +1147,8 @@
     } else {
       selectedDates.push({ year, monthIndex, day, key });
       cellRegistry[key].classList.add('selected');
+      // Nouvelle sélection après un envoi : on masque l'ancienne confirmation
+      document.getElementById('confirmation-box').classList.remove('show');
     }
     renderSelectedDates();
   }
@@ -1190,6 +1199,7 @@
     selectedDates = [];
     document.getElementById('cart-chips').innerHTML = '';
     document.getElementById('panel-dates-recap').textContent = '';
+    document.getElementById('confirmation-box').classList.remove('show');
   });
 
   document.getElementById('booking-form').addEventListener('submit', (e) => {
@@ -1233,7 +1243,27 @@ ${message}`;
     document.getElementById('confirmation-box').scrollIntoView({behavior:'smooth', block:'center'});
 
     window.open(gmailCompose, '_blank');
+
+    // Les dates demandées passent en grisé sur le planning + on vide le panier
+    markSelectedAsRequested();
   });
+
+  // Passe les dates demandées en grisé (retour visuel local, non persistant) et
+  // réinitialise le panier — sans masquer la box de confirmation.
+  function markSelectedAsRequested(){
+    selectedDates.forEach(sd => {
+      const cell = cellRegistry[sd.key];
+      if(cell){
+        cell.classList.remove('selected', 'available');
+        cell.classList.add('booked');
+      }
+    });
+    selectedDates = [];
+    document.getElementById('sticky-cart').classList.remove('show');
+    document.body.classList.remove('cart-active');
+    document.getElementById('cart-chips').innerHTML = '';
+    document.getElementById('panel-dates-recap').textContent = '';
+  }
 
   document.getElementById('copy-btn').addEventListener('click', () => {
     const text = document.getElementById('confirmation-text').textContent;
