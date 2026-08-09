@@ -1,1233 +1,615 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Disponibilités — Sauveteur aquatique BNSSA</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erwan Milbéo</title>
+<meta name="description" content="Erwan Milbéo — entrepreneur international (immobilier, technologie, intelligence artificielle), nageur-sauveteur-secouriste diplômé et sportif. Site officiel.">
+<meta name="author" content="Erwan Milbéo">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="https://www.erwan-milbeo.com/">
+
+<!-- Open Graph (partage réseaux / messageries) -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Erwan Milbéo">
+<meta property="og:title" content="Erwan Milbéo">
+<meta property="og:description" content="Entrepreneur international, nageur-sauveteur-secouriste diplômé et sportif.">
+<meta property="og:url" content="https://www.erwan-milbeo.com/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.erwan-milbeo.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="Logo d'Erwan Milbéo">
+<meta property="profile:first_name" content="Erwan">
+<meta property="profile:last_name" content="Milbéo">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Erwan Milbéo">
+<meta name="twitter:description" content="Entrepreneur international, nageur-sauveteur-secouriste diplômé et sportif.">
+<meta name="twitter:image" content="https://www.erwan-milbeo.com/og-image.png">
+
+<!-- Données structurées : identité (moteurs de recherche + IA) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.erwan-milbeo.com/#erwan-milbeo",
+      "name": "Erwan Milbéo",
+      "givenName": "Erwan",
+      "familyName": "Milbéo",
+      "url": "https://www.erwan-milbeo.com/",
+      "image": "https://www.erwan-milbeo.com/og-image.png",
+      "jobTitle": "Entrepreneur",
+      "description": "Entrepreneur international, fondateur et dirigeant de sociétés depuis 1991 (immobilier, technologie, intelligence artificielle). Également nageur-sauveteur-secouriste diplômé (BNSSA, PSE1, PSE2) et sportif.",
+      "knowsAbout": ["Immobilier international", "Technologie", "Intelligence artificielle", "Entrepreneuriat", "Sauvetage et secourisme", "Sport"],
+      "knowsLanguage": ["fr", "en", "es"],
+      "nationality": { "@type": "Country", "name": "France" },
+      "worksFor": { "@type": "Organization", "name": "SUNCOM", "url": "https://suncom.estate" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.erwan-milbeo.com/#website",
+      "name": "Erwan Milbéo",
+      "url": "https://www.erwan-milbeo.com/",
+      "inLanguage": "fr",
+      "about": { "@id": "https://www.erwan-milbeo.com/#erwan-milbeo" }
+    }
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23147D86'/%3E%3Cg fill='none' stroke='%23F5FAF9' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 24 L8 8 L13 16 L18 8 L18 24'/%3E%3Cpath d='M18 8 L24 8'/%3E%3Cpath d='M18 16 L22 16'/%3E%3Cpath d='M18 24 L24 24'/%3E%3C/g%3E%3Ccircle cx='26' cy='6' r='2.6' fill='%23E8B23C'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Fraunces:ital,wght@1,400;1,500&family=Michroma&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --marine:#0A2A3B;
-    --marine-2:#0F3A50;
-    --foam:#F5FAF9;
-    --pool:#147D86;
-    --pool-light:#DCEEEF;
-    --flag-green:#2E8B57;
-    --flag-green-dim:#BFE0CC;
-    --flag-red:#C1432E;
-    --flag-red-dim:#E6C9C2;
-    --sand:#E8C468;
-    --ink:#16323F;
-    --mist:#7C9399;
-    --line:#D7E3E4;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--foam);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    line-height:1.5;
-  }
-  h1,h2,h3{
-    font-family:'Bebas Neue',sans-serif;
-    letter-spacing:0.02em;
-    margin:0;
-    font-weight:400;
-  }
-  .mono{font-family:'IBM Plex Mono',monospace;}
+:root{
+  --marine:#0A2A3B; --marine-2:#0F3A50; --foam:#F5FAF9;
+  --pool:#147D86; --pool-light:#DCEEEF;
+  --gold:#E8C468; --gold-soft:#F0D488;
+  --ink:#16323F; --mist:#7C9399; --line:#D7E3E4;
+  --coral:#E8734A; --coral-2:#D6552E;
+  --page:#EEF3F4;
+}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    background:radial-gradient(circle at 15% 20%, var(--marine-2) 0%, var(--marine) 55%, #071C28 100%);
-    color:var(--foam);
-    padding:40px 24px 64px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::after{
-    content:"";
-    position:absolute;
-    right:-60px; top:-60px;
-    width:280px; height:280px;
-    border-radius:50%;
-    background:radial-gradient(circle, rgba(232,196,104,0.18) 0%, rgba(232,196,104,0) 70%);
-  }
-  .hero-inner{max-width:920px; margin:0 auto; position:relative; z-index:1;}
-  .hero-identity{
-    display:flex;
-    align-items:center;
-    gap:13px;
-    margin-bottom:18px;
-    font-family:'Cormorant Garamond', Georgia, serif;
-    font-style:italic;
-    font-weight:600;
-    font-size:22px;
-    letter-spacing:0.02em;
-    color:var(--sand);
-    opacity:0.8;
-  }
-  .hero-identity .identity-icon{
-    width:25px;
-    height:25px;
-    flex-shrink:0;
-  }
-  .badge-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px;}
-  .badge{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    padding:5px 10px;
-    border:1px solid rgba(245,250,249,0.35);
-    border-radius:3px;
-    color:var(--foam);
-    background:rgba(245,250,249,0.06);
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-  }
-  .badge svg{flex-shrink:0;}
-  /* Force les badges géographiques sur une 2e ligne (sous la bouée) */
-  .badge-break{flex-basis:100%; height:0;}
-  .hero-lifebuoy{
-    position:absolute;
-    top:-10px; right:0px;
-    font-size:76px;
-    line-height:1;
-    z-index:0;
-    opacity:0.5;
-    filter:drop-shadow(0 6px 14px rgba(0,0,0,0.25));
-  }
-  .hero h1{
-    font-size:clamp(32px, 5.2vw, 56px);
-    line-height:1.05;
-    max-width:32ch;
-  }
-  .hero .accent{color:var(--sand);}
-  .hero p.lede{
-    font-size:17px;
-    max-width:52ch;
-    color:#CFE3E4;
-    margin-top:18px;
-  }
-  .hero-offers{
-    list-style:none;
-    margin:20px 0 0;
-    padding:0;
-    display:flex;
-    flex-direction:column;
-    gap:11px;
-  }
-  .hero-offers li{
-    display:flex;
-    align-items:center;
-    gap:11px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:16px;
-    font-weight:500;
-    letter-spacing:0.02em;
-    color:var(--foam);
-  }
-  .hero-offers .offer-arrow{
-    flex-shrink:0;
-    width:26px; height:26px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:rgba(232,196,104,0.14);
-    color:var(--sand);
-  }
-  .hero-offers .offer-arrow svg{display:block;}
-  .hero-venues{
-    list-style:none;
-    margin:14px 0 0;
-    padding:0;
-    max-width:56ch;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px 26px;
-  }
-  .hero-venues li{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:15px;
-    color:#DCEAEB;
-  }
-  .hero-venues li::before{
-    content:"";
-    flex-shrink:0;
-    width:0; height:0;
-    border-top:5px solid transparent;
-    border-bottom:5px solid transparent;
-    border-left:8px solid var(--flag-green);
-  }
-  .scroll-cta{
-    display:flex;
-    width:fit-content;
-    max-width:100%;
-    align-items:center;
-    gap:13px;
-    margin-top:30px;
-    text-decoration:none;
-    font-family:'Bebas Neue',sans-serif;
-    font-size:25px;
-    letter-spacing:0.03em;
-    color:var(--sand);
-    transition:opacity .15s ease;
-  }
-  .scroll-cta:hover{opacity:0.85;}
-  .scroll-cta .arrow-down{
-    flex-shrink:0;
-    width:36px; height:36px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    border:1.5px solid var(--sand);
-    background:rgba(232,196,104,0.1);
-    animation:cta-bob 1.9s ease-in-out infinite;
-  }
-  @keyframes cta-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
-  .status-strip{
-    margin-top:32px;
-    display:flex;
-    align-items:center;
+*{box-sizing:border-box; margin:0; padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 15% -10%, #E4EEEF 0%, transparent 60%),
+    radial-gradient(1000px 700px at 110% 20%, #E9F0EC 0%, transparent 55%),
+    var(--page);
+  min-height:100vh;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{max-width:1120px; margin:0 auto; padding:46px 24px 40px;}
+
+/* ---------- BENTO GRID ---------- */
+.bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:minmax(10px,auto);
+  gap:18px;
+}
+.card{
+  position:relative;
+  border-radius:22px;
+  padding:30px 32px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+a.card{text-decoration:none; color:inherit; transition:transform .28s cubic-bezier(.2,.7,.3,1), box-shadow .28s;}
+a.card:focus-visible{outline:3px solid var(--pool); outline-offset:3px;}
+
+.area-intro{grid-area:intro;}
+.area-lead {grid-area:lead;}
+.area-save {grid-area:save;}
+.area-sport{grid-area:sport;}
+.area-skill{grid-area:skill;}
+
+.bento{
+  grid-template-areas:
+    "lead  lead  lead  lead  lead  lead  lead  sport sport sport sport sport"
+    "lead  lead  lead  lead  lead  lead  lead  save  save  save  save  save"
+    "skill skill skill skill skill skill skill skill skill skill skill skill";
+}
+
+/* hero baseline + sous-titre de section */
+.hero-baseline{
+  font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:500;
+  font-size:22px; line-height:1.1; letter-spacing:.004em;
+  color:var(--pool); margin:4px 0 7px;
+}
+.section-lead{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+  gap:9px 20px; text-align:center;
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase; color:#4a6670;
+  margin:24px 6px 20px;
+}
+.section-lead .hf{color:var(--pool);}
+
+/* common bits */
+.kicker{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+  font-weight:500;
+}
+.card h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-weight:400; line-height:.98; letter-spacing:.01em;
+}
+.card p{font-size:14.5px; line-height:1.6;}
+.tag{
+  display:inline-block; font-family:'IBM Plex Mono',monospace;
+  font-size:11px; letter-spacing:.04em; padding:5px 11px; border-radius:999px;
+  white-space:nowrap;
+}
+.cta{
+  margin-top:auto; align-self:flex-start;
+  display:inline-flex; align-items:center; gap:9px;
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; font-weight:500;
+  letter-spacing:.04em; padding:10px 16px; border-radius:999px;
+  transition:gap .25s;
+}
+a.card:hover .cta{gap:14px;}
+.cta svg{width:15px; height:15px;}
+
+/* ---------- CARD 1 · PRÉSENTATION ---------- */
+.area-intro{
+  background:linear-gradient(135deg,#ffffff 0%,#F3F9F8 100%);
+  border:1px solid var(--line);
+  box-shadow:0 14px 40px -22px rgba(10,42,59,.28);
+  flex-direction:row; align-items:flex-start; gap:34px;
+  padding:34px 38px;
+}
+.intro-emblem{
+  flex:0 0 auto; width:112px; height:112px; border-radius:26px;
+  display:grid; place-items:center;
+  background:radial-gradient(circle at 35% 30%, #1a95a0 0%, var(--pool) 55%, #0d5b62 100%);
+  box-shadow:
+    0 36px 50px -12px rgba(10,42,59,.58),
+    0 18px 26px -8px rgba(20,125,134,.5),
+    inset 0 3px 7px rgba(255,255,255,.32),
+    inset 0 -9px 15px rgba(0,6,10,.24);
+  animation:emblem-float 5.5s ease-in-out infinite;
+}
+@keyframes emblem-float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)}}
+.intro-emblem svg{width:78px; height:78px;}
+.intro-body{min-width:0;}
+.intro-name{
+  font-family:'Cormorant Garamond',serif; font-weight:600;
+  font-size:46px; line-height:1; color:rgba(22,50,63,.8); letter-spacing:.01em;
+}
+.intro-role{color:var(--pool); margin-top:8px;}
+.intro-bio{color:#3d5a63; margin-top:24px; max-width:none;}
+.bio-sign{
+  font-family:'Michroma',sans-serif; color:var(--pool);
+  font-size:13px; letter-spacing:.004em; line-height:1.5;
+  margin-top:22px; padding-top:18px; position:relative;
+}
+.bio-sign::before{
+  content:""; position:absolute; top:0; left:0; width:44px; height:2px;
+  background:linear-gradient(90deg,var(--gold),#C79A38);
+}
+.bio-lead{font-size:14.5px; line-height:1.62;}
+.bio-close{margin-top:12px; font-size:14.5px; line-height:1.62; color:#3d5a63;}
+
+/* switch de langue FR / EN */
+.lang-switch{
+  position:absolute; top:18px; right:20px; z-index:4;
+  display:inline-flex; gap:3px; padding:3px;
+  border-radius:999px; background:rgba(20,125,134,.05);
+  border:1px solid var(--line);
+}
+.lang-btn{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
+  letter-spacing:.08em; line-height:1; padding:5px 9px;
+  border:0; border-radius:999px; background:transparent; color:var(--mist);
+  cursor:pointer; transition:background .2s, color .2s;
+}
+.lang-btn.is-active{ background:var(--pool); color:#fff; }
+.lang-btn:not(.is-active):hover{ color:var(--pool); }
+.lang-btn:focus-visible{ outline:2px solid var(--pool); outline-offset:2px; }
+
+/* ---------- CARD 2 · ENTREPRENEUR (LEADER, navy & gold) ---------- */
+.area-lead{
+  color:var(--foam);
+  background:
+    radial-gradient(130% 90% at 12% -12%, rgba(28,74,104,.5) 0%, transparent 55%),
+    linear-gradient(165deg,#163a54 0%,#0c2436 46%,#060f18 100%);
+  border:1px solid rgba(232,196,104,.26);
+  border-bottom:2.5px solid var(--gold);
+  box-shadow:0 24px 55px -26px rgba(4,12,20,.9);
+  padding:40px 34px 40px;
+}
+.area-lead::after{ content:none; }
+.lead-icon{ width:42px; height:42px; color:var(--gold); margin-bottom:26px; }
+.lead-icon .accent{ fill:var(--pool); stroke:none; }
+.lead-badge{
+  align-self:flex-start;
+  font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--gold);
+  border:1px solid rgba(232,196,104,.55); border-radius:7px;
+  padding:7px 13px; margin-bottom:24px;
+}
+.area-lead .lead-title{
+  font-family:'Michroma',sans-serif; font-weight:400;
+  font-size:32px; line-height:1.14; letter-spacing:.02em; text-transform:uppercase;
+  margin:0 0 16px;
+}
+.lead-title .t1{ color:#eaf2f4; }
+.lead-title .t2{ color:var(--gold); }
+.lead-sub{
+  font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold-soft); margin-bottom:26px;
+}
+.lead-body{ color:#b9ccd4; max-width:44ch; line-height:1.72; margin-bottom:30px; position:relative; z-index:1; }
+.area-lead .cta{
+  margin-top:auto; position:relative; z-index:1; border:0;
+  background:linear-gradient(135deg,var(--gold-soft),var(--gold) 55%,#C79A38);
+  color:#2a1f04;
+  font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:12px 20px;
+  box-shadow:0 14px 30px -10px rgba(232,196,104,.55), 0 2px 6px rgba(0,0,0,.3),
+             inset 0 1px 0 rgba(255,255,255,.5);
+  transition:transform .25s, box-shadow .25s, filter .25s, gap .25s;
+}
+a.card.area-lead:hover .cta{
+  transform:translateY(-2px);
+  box-shadow:0 22px 46px -8px rgba(232,196,104,.85), 0 3px 10px rgba(0,0,0,.35),
+             inset 0 1px 0 rgba(255,255,255,.65);
+  filter:saturate(1.08) brightness(1.03);
+}
+.lead-deco{
+  position:absolute; right:-12px; bottom:-16px; width:186px; height:186px;
+  color:var(--gold); opacity:.09; pointer-events:none; z-index:0;
+}
+a.card.area-lead:hover{transform:translateY(-4px); box-shadow:0 32px 65px -24px rgba(4,12,20,.95);}
+
+/* ---------- CARD 3 · SAUVETEUR (marine/turquoise) ---------- */
+.area-save{
+  color:var(--foam);
+  background:
+    radial-gradient(420px 260px at 110% -20%, rgba(20,125,134,.55) 0%, transparent 60%),
+    linear-gradient(155deg,var(--marine-2) 0%,var(--marine) 100%);
+  border:1px solid rgba(20,125,134,.5);
+  box-shadow:0 18px 45px -24px rgba(10,42,59,.8);
+}
+.area-save .kicker{color:#7fd4d0;}
+.area-save h2{color:#fff; font-size:33px; margin:12px 0 8px;}
+.area-save p{color:#c4dbe0; font-size:13.5px; line-height:1.62; margin-bottom:28px;}
+.save-flags{display:flex; gap:6px; margin-top:12px; flex-wrap:wrap;}
+.save-flags .tag{background:rgba(245,250,249,.1); color:#d9edee; border:1px solid rgba(245,250,249,.18);}
+.area-save .cta{background:var(--pool); color:#fff; box-shadow:0 10px 22px -12px rgba(20,125,134,.9);}
+a.card.area-save:hover{transform:translateY(-4px); box-shadow:0 28px 55px -24px rgba(10,42,59,.85);}
+.save-buoy{position:absolute; right:20px; bottom:16px; width:70px; height:70px; opacity:.14; pointer-events:none;}
+
+/* ---------- CARD 4 · SPORTIF (énergique) ---------- */
+.area-sport{
+  color:#fff;
+  background:
+    linear-gradient(150deg,#F08A5C 0%,var(--coral) 45%,var(--coral-2) 100%);
+  border:1px solid rgba(214,85,46,.5);
+  box-shadow:0 18px 45px -24px rgba(214,85,46,.6);
+}
+.area-sport::before{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background:repeating-linear-gradient(115deg, rgba(255,255,255,.14) 0 2px, transparent 2px 20px);
+  -webkit-mask-image:linear-gradient(135deg, transparent 40%, #000 100%);
+          mask-image:linear-gradient(135deg, transparent 40%, #000 100%);
+}
+.area-sport .kicker{color:#ffe6d8;}
+.area-sport h2{font-size:33px; margin:12px 0 8px;}
+.area-sport p{color:#fff2ec; font-size:13.5px;}
+.sport-tags{display:flex; gap:6px; margin-top:14px; flex-wrap:wrap;}
+.sport-tags .tag{background:rgba(255,255,255,.18); color:#fff; border:1px solid rgba(255,255,255,.32);}
+
+/* ---------- CARD 5 · COMPÉTENCES (technique, sombre) ---------- */
+.area-skill{
+  color:var(--foam);
+  background:linear-gradient(180deg,#12303C 0%,#0E2731 100%);
+  border:1px solid rgba(124,147,153,.32);
+  box-shadow:0 18px 45px -26px rgba(7,27,40,.7);
+}
+.area-skill .kicker{color:#79c3c6;}
+.area-skill h2{color:#fff; font-size:30px; margin:10px 0 18px;}
+.skill-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:22px 30px;
+}
+.skill-col h3{
+  font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:12px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--gold-soft);
+  margin-bottom:11px; padding-bottom:8px; border-bottom:1px solid rgba(124,147,153,.28);
+}
+.skill-col ul{list-style:none;}
+.skill-col li{
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:#c2d3d6;
+  padding:4px 0 4px 16px; position:relative;
+}
+.skill-col li::before{
+  content:"›"; position:absolute; left:0; color:var(--pool); font-weight:700;
+}
+
+/* ---------- FOOTER ---------- */
+.foot{
+  margin-top:30px; padding-top:22px; border-top:1px solid var(--line);
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:14px 26px;
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--mist);
+}
+.foot-contacts{display:flex; flex-wrap:wrap; gap:8px 22px;}
+.foot a{color:var(--pool); text-decoration:none; display:inline-flex; align-items:center; gap:7px;}
+.foot a:hover{text-decoration:underline;}
+.foot svg{width:14px; height:14px;}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .bento{
+    grid-template-columns:1fr;
+    grid-template-areas:"lead" "save" "sport" "skill";
     gap:14px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    color:#CFE3E4;
   }
-  .contract-note{
-    position:relative;
-    margin-top:22px;
-    display:flex;
-    width:fit-content;
-    max-width:100%;
-    box-sizing:border-box;
-    align-items:center;
-    gap:11px;
-    padding:11px 18px;
-    border:1px solid rgba(232,196,104,0.6);
-    border-radius:16px;
-    background:linear-gradient(150deg, rgba(232,196,104,0.22) 0%, rgba(232,196,104,0.06) 60%, rgba(232,196,104,0.12) 100%);
-    color:var(--sand);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12.5px;
-    letter-spacing:0.04em;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.28),
-      inset 0 -2px 6px rgba(0,0,0,0.22),
-      0 6px 16px -4px rgba(0,0,0,0.4),
-      0 0 22px -2px rgba(232,196,104,0.5),
-      0 0 0 4px rgba(232,196,104,0.07);
-    animation:note-halo 3.2s ease-in-out infinite;
-  }
-  @keyframes note-halo{
-    0%,100%{box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.28),
-      inset 0 -2px 6px rgba(0,0,0,0.22),
-      0 6px 16px -4px rgba(0,0,0,0.4),
-      0 0 22px -2px rgba(232,196,104,0.5),
-      0 0 0 4px rgba(232,196,104,0.07);}
-    50%{box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.32),
-      inset 0 -2px 6px rgba(0,0,0,0.22),
-      0 8px 20px -4px rgba(0,0,0,0.45),
-      0 0 34px 2px rgba(232,196,104,0.7),
-      0 0 0 5px rgba(232,196,104,0.12);}
-  }
-  .contract-note svg{flex-shrink:0;}
-  .contract-note .nowrap{white-space:nowrap;}
-  .contract-more{
-    flex-shrink:0;
-    appearance:none;
-    border:none;
-    cursor:pointer;
-    background:var(--sand);
-    color:var(--marine);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    padding:6px 12px;
-    border-radius:20px;
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.3);
-    transition:filter .15s ease, transform .1s ease;
-  }
-  .contract-more:hover{filter:brightness(1.08);}
-  .contract-more:active{transform:translateY(1px);}
-  .contract-more svg{width:13px;height:13px;}
-
-  /* ---------- MODAL CONDITIONS ---------- */
-  .modal-overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:100;
-    background:rgba(7,28,40,0.62);
-    backdrop-filter:blur(3px);
-    padding:24px;
-    align-items:center;
-    justify-content:center;
-  }
-  .modal-overlay.show{display:flex;}
-  .modal{
-    position:relative;
-    width:100%;
-    max-width:520px;
-    max-height:85vh;
-    overflow-y:auto;
-    background:var(--foam);
-    border:1px solid var(--line);
-    border-top:4px solid var(--sand);
-    border-radius:14px;
-    padding:28px 26px 26px;
-    box-shadow:0 24px 60px rgba(7,28,40,0.5);
-  }
-  .modal h3{
-    font-size:24px;
-    color:var(--marine);
-    margin-bottom:4px;
-  }
-  .modal .modal-sub{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    color:var(--pool);
-    margin:0 0 16px;
-  }
-  .modal-body h4{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    color:var(--marine);
-    margin:16px 0 6px;
-  }
-  .modal-body p{font-size:14px; color:var(--ink); margin:0 0 10px;}
-  .modal-body .modal-note{
-    font-style:italic;
-    font-weight:300;
-    font-size:12.5px;
-    color:var(--mist);
-    margin-top:14px;
-  }
-  .modal-body .placeholder-flag{
-    font-size:12px;
-    color:var(--flag-red);
-    background:var(--flag-red-dim);
-    border-radius:6px;
-    padding:8px 10px;
-    margin-top:14px;
-  }
-  .modal-close{
-    position:absolute;
-    top:14px; right:14px;
-    background:none;
-    border:none;
-    font-size:22px;
-    line-height:1;
-    color:var(--mist);
-    cursor:pointer;
-    padding:4px;
-  }
-  .modal-close:hover{color:var(--marine);}
-  .pole{
-    width:2px; height:34px; background:#CFE3E4; opacity:0.5;
-  }
-  .flag-icon{
-    width:0; height:0;
-    border-top:11px solid transparent;
-    border-bottom:11px solid transparent;
-    border-left:16px solid var(--flag-green);
-  }
-  .flag-icon.red{border-left-color:var(--flag-red);}
-
-  /* ---------- LEGEND ---------- */
-  .legend-bar{
-    max-width:920px; margin:0 auto;
-    display:flex; gap:28px; flex-wrap:wrap;
-    padding:20px 24px;
-    font-size:13px;
-    color:var(--mist);
-  }
-  .legend-item{display:flex; align-items:center; gap:8px;}
-  .legend-flag{width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid var(--flag-green);}
-  .legend-flag.red{border-left-color:var(--flag-red);}
-  .legend-flag.grey{border-left-color:#B7C4C6;}
-  /* Mini-cases reprenant l'apparence des cellules du calendrier */
-  .legend-cell{
-    flex-shrink:0;
-    width:24px; height:24px;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:6px;
-  }
-  .legend-cell.booked{background:#EEF2F2;}
-  .legend-cell .flag{
-    width:0; height:0;
-    border-top:6px solid transparent;
-    border-bottom:6px solid transparent;
-    border-left:9px solid var(--flag-green);
-  }
-  .legend-cell.booked .flag{border-left-color:#B7C4C6;}
-
-  /* ---------- CALENDAR SECTION ---------- */
-  .cal-section{max-width:920px; margin:0 auto; padding:0 24px 40px;}
-  .month-block{margin-bottom:24px;}
-  .month-block.collapsed{margin-bottom:8px;}
-  .month-title{
-    width:100%;
-    box-sizing:border-box;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin:0 0 14px;
-    padding:10px 16px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    background:#fff;
-    text-align:left;
-    cursor:pointer;
-    transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
-  }
-  .month-block.collapsed .month-title{margin-bottom:0;}
-  .month-title:hover{border-color:var(--pool); box-shadow:0 3px 12px rgba(20,125,134,0.13);}
-  .month-title:focus-visible{outline:2px solid var(--pool); outline-offset:2px;}
-  .month-block:not(.collapsed) .month-title{background:var(--pool-light); border-color:var(--pool);}
-  .month-heading{
-    display:flex;
-    align-items:baseline;
-    flex-wrap:wrap;
-    gap:2px 9px;
-    font-family:'Bebas Neue', sans-serif;
-    font-size:23px;
-    letter-spacing:0.03em;
-    line-height:1.05;
-    color:var(--marine);
-  }
-  .month-count{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:10.5px;
-    font-weight:500;
-    color:var(--pool);
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-  }
-  .month-caret{flex-shrink:0; width:19px; height:19px; color:var(--mist); transition:transform .2s ease;}
-  .month-title:hover .month-caret,
-  .month-block:not(.collapsed) .month-caret{color:var(--pool);}
-  .month-block.collapsed .month-caret{transform:rotate(-90deg);}
-  .month-block.collapsed .month-body{display:none;}
-  .weekdays{
-    display:grid;
-    grid-template-columns:repeat(7, 1fr);
-    gap:6px;
-    margin-bottom:6px;
-  }
-  .weekdays span{
-    text-align:center;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    color:var(--mist);
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-  }
-  .days-grid{
-    display:grid;
-    grid-template-columns:repeat(7, 1fr);
-    gap:6px;
-  }
-  .day-cell{
-    aspect-ratio:1/1;
-    border-radius:6px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:4px;
-    background:#fff;
-    border:1px solid var(--line);
-    cursor:default;
-  }
-  .day-cell.empty{background:transparent; border:none;}
-  .day-cell .num{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;
-    color:var(--ink);
-  }
-  .day-cell .flag{
-    width:0;height:0;
-    border-top:6px solid transparent;
-    border-bottom:6px solid transparent;
-    border-left:9px solid var(--flag-green);
-  }
-  .day-cell.booked{
-    background:#EEF2F2;
-    border-color:var(--line);
-  }
-  .day-cell.booked .num{color:#A9B7BA;}
-  .day-cell.booked .flag{border-left-color:#B7C4C6;}
-  .day-cell.available{
-    transition:transform .12s ease, box-shadow .12s ease;
-  }
-  .day-cell.available:hover{
-    transform:translateY(-2px);
-    box-shadow:0 4px 10px rgba(20,125,134,0.18);
-    border-color:var(--pool);
-    cursor:pointer;
-  }
-  .day-cell.selected{
-    background:var(--pool);
-    border-color:var(--pool);
-  }
-  .day-cell.selected .num{color:#fff;}
-  .day-cell.selected .flag{border-left-color:var(--sand);}
-
-  .open-note{
-    max-width:920px; margin:0 auto 22px; padding:0 24px;
-  }
-  .open-note-inner{
-    background:var(--pool-light);
-    border-left:4px solid var(--pool);
-    padding:16px 20px;
-    border-radius:0 6px 6px 0;
-    font-size:14px;
-    color:var(--marine);
-  }
-
-  /* ---------- BOOKING PANEL ---------- */
-  .booking-wrap{max-width:920px; margin:0 auto; padding:0 24px 70px;}
-  #booking-panel{
-    display:none;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:28px;
-    box-shadow:0 8px 24px rgba(10,42,59,0.08);
-  }
-  #booking-panel.show{display:block;}
-  .booking-header{
-    display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
-    margin-bottom:18px;
-  }
-  .booking-header h3{font-size:24px; color:var(--marine);}
-  .selected-date-tag{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;
-    color:var(--pool);
-    background:var(--pool-light);
-    padding:4px 10px;
-    border-radius:4px;
-    margin-top:6px;
-    display:inline-block;
-  }
-  .picker-hint{
-    font-size:12px;
-    color:var(--mist);
-    margin:4px 0 4px;
-  }
-  .panel-dates-recap{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:17px;
-    font-weight:600;
-    letter-spacing:0.02em;
-    color:var(--marine);
-    background:rgba(232,196,104,0.18);
-    border-left:3px solid var(--sand);
-    padding:8px 12px;
-    border-radius:0 6px 6px 0;
-    margin:0;
-  }
-  body.cart-active{padding-bottom:78px;}
-  .sticky-cart{
-    display:none;
-    position:fixed;
-    left:0; right:0; bottom:0;
-    background:var(--marine);
-    color:var(--foam);
-    padding:12px 20px;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-    box-shadow:0 -8px 22px rgba(0,0,0,0.18);
-    z-index:50;
-  }
-  .sticky-cart.show{display:flex;}
-  .cart-chips{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    flex:1;
-    padding-bottom:2px;
-  }
-  .cart-chip{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    white-space:nowrap;
-    background:rgba(245,250,249,0.1);
-    border:1px solid rgba(245,250,249,0.25);
-    padding:5px 6px 5px 10px;
-    border-radius:16px;
-    flex-shrink:0;
-  }
-  .cart-chip button{
-    background:none; border:none; color:var(--foam);
-    cursor:pointer; font-size:12px; line-height:1;
-    padding:2px 5px; border-radius:50%; opacity:0.7;
-  }
-  .cart-chip button:hover{opacity:1; background:rgba(245,250,249,0.15);}
-  .cart-cta{
-    background:var(--sand);
-    color:var(--marine);
-    border:none;
-    font-family:'IBM Plex Mono',monospace;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    font-size:12px;
-    padding:12px 18px;
-    border-radius:6px;
-    cursor:pointer;
-    white-space:nowrap;
-    flex-shrink:0;
-  }
-  .cart-cta:hover{filter:brightness(1.05);}
-  .close-btn{
-    background:none; border:none; font-size:20px; color:var(--mist);
-    cursor:pointer; line-height:1; padding:4px;
-  }
-  form{display:grid; gap:14px;}
-  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  label{
-    font-size:12px; text-transform:uppercase; letter-spacing:0.05em;
-    color:var(--mist); font-family:'IBM Plex Mono',monospace;
-    display:block; margin-bottom:5px;
-  }
-  input, select, textarea{
-    width:100%;
-    font-family:'Inter',sans-serif;
-    font-size:14px;
-    padding:10px 12px;
-    border:1px solid var(--line);
-    border-radius:6px;
-    color:var(--ink);
-    background:var(--foam);
-  }
-  input:focus, select:focus, textarea:focus{
-    outline:2px solid var(--pool);
-    outline-offset:1px;
-  }
-  textarea{resize:vertical; min-height:80px;}
-  .submit-btn{
-    justify-self:start;
-    background:var(--marine);
-    color:var(--foam);
-    border:none;
-    font-family:'IBM Plex Mono',monospace;
-    text-transform:uppercase;
-    letter-spacing:0.06em;
-    font-size:13px;
-    padding:13px 26px;
-    border-radius:6px;
-    cursor:pointer;
-    transition:background .15s ease;
-  }
-  .submit-btn:hover{background:var(--pool);}
-  .form-note{font-size:12px; color:var(--mist); margin-top:-4px;}
-
-  .confirmation-box{
-    display:none;
-    margin-top:22px;
-    padding:20px 22px;
-    background:var(--pool-light);
-    border:1px solid var(--pool);
-    border-radius:10px;
-  }
-  .confirmation-box.show{display:block;}
-  .confirmation-box h4{
-    font-size:20px;
-    color:var(--marine);
-    margin-bottom:8px;
-  }
-  .confirmation-box p{
-    font-size:13px;
-    color:var(--ink);
-    margin:0 0 12px;
-  }
-  #confirmation-text{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    white-space:pre-wrap;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:12px 14px;
-    max-height:220px;
-    overflow-y:auto;
-    margin:0 0 14px;
-  }
-  .confirmation-actions{display:flex; gap:12px; flex-wrap:wrap;}
-  .copy-btn{
-    background:var(--marine);
-    color:var(--foam);
-    border:none;
-    font-family:'IBM Plex Mono',monospace;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    font-size:12px;
-    padding:11px 18px;
-    border-radius:6px;
-    cursor:pointer;
-  }
-  .copy-btn:hover{background:var(--pool);}
-  .mailto-fallback{
-    display:inline-flex;
-    align-items:center;
-    font-family:'IBM Plex Mono',monospace;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    font-size:12px;
-    color:var(--pool);
-    text-decoration:none;
-    padding:11px 4px;
-  }
-  .mailto-fallback:hover{text-decoration:underline;}
-
-  .empty-hint{
-    text-align:center; color:var(--mist); font-size:14px; padding:40px 20px;
-    border:1px dashed var(--line); border-radius:10px;
-  }
-
-  footer{
-    text-align:center;
-    padding:16px 24px 40px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    color:var(--mist);
-  }
-  .footer-line{margin-top:8px;}
-  .footer-line:first-child{margin-top:0;}
-  /* Coupures du descriptif : desktop = diplômes / activité ;
-     mobile = césure après « Saisons » */
-  .footer-desc .nowrap{white-space:nowrap;}
-  .footer-desc .sep-1{display:none;}
-  .footer-desc .sep-2{display:inline;}
-  .footer-desc .brk-2{display:none;}
-  .footer-contact{
-    color:var(--pool);
-    text-decoration:none;
-  }
-  .footer-contact:hover{text-decoration:underline;}
-  .footer-contact svg{vertical-align:-2px; margin-right:5px;}
-  .footer-sep{margin:0 10px; color:var(--line);}
-
-  @media (max-width:560px){
-    .row2{grid-template-columns:1fr;}
-    .day-cell .num{font-size:11px;}
-    .month-title{padding:9px 13px;}
-    .month-heading{font-size:21px;}
-
-    /* Hero mobile : bouée + casque réduits et placés dans le flux, centrés
-       en bas (plus aucun risque de chevaucher les badges ou le texte) */
-    .hero{padding:30px 20px 30px;}
-    .hero-identity{font-size:18px; gap:10px; margin-bottom:14px;}
-    .hero-identity .identity-icon{width:21px; height:21px;}
-    .hero-lifebuoy{
-      position:static;
-      text-align:center;
-      font-size:37px;
-      margin:22px 0 2px;
-    }
-    .hero-venues{grid-template-columns:1fr; gap:8px; margin-top:12px;}
-    .scroll-cta{font-size:22px; margin-top:24px; gap:11px;}
-    .scroll-cta .arrow-down{width:32px; height:32px;}
-    /* Bloc contrat : bouton sur sa propre ligne pour ne pas déborder */
-    .contract-note{display:flex; flex-wrap:wrap; width:100%; box-sizing:border-box;}
-    .contract-note .contract-label{flex:1 1 auto;}
-    .contract-more{flex-basis:100%; justify-content:center; margin-top:4px;}
-    /* Badges resserrés pour que Finistère · Bretagne + France entière
-       tiennent côte à côte sur une seule ligne */
-    .badge-row{gap:5px;}
-    .badge{font-size:10px; padding:4px 6px; letter-spacing:0.03em; gap:4px;}
-    .badge svg{width:12px; height:12px;}
-    .hero-offers{gap:9px; margin-top:18px;}
-    .hero-offers li{font-size:14px; gap:9px;}
-    .hero-offers .offer-arrow{width:23px; height:23px;}
-
-    /* Marges latérales resserrées pour gagner de la largeur utile */
-    .legend-bar,
-    .cal-section,
-    .open-note,
-    .booking-wrap{padding-left:16px; padding-right:16px;}
-    #booking-panel{padding:22px 16px;}
-
-    /* Panier fixe : le CTA monopolisait la largeur, les dates étaient
-       tronquées et non supprimables → passage en 2 lignes empilées */
-    .sticky-cart{
-      flex-direction:column;
-      align-items:stretch;
-      gap:8px;
-      padding:10px 12px;
-    }
-    .cart-chips{flex:none; width:100%;}
-    .cart-cta{width:100%; text-align:center;}
-    body.cart-active{padding-bottom:120px;}
-
-    /* Footer : césure après « Saisons » (au lieu de la coupure desktop) */
-    .footer-desc .sep-1{display:inline;}
-    .footer-desc .brk-1{display:none;}
-    .footer-desc .sep-2{display:none;}
-    .footer-desc .brk-2{display:inline;}
-
-    /* Footer : téléphone + email sur une seule ligne */
-    .footer-contacts{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-wrap:nowrap;
-      gap:5px;
-      white-space:nowrap;
-    }
-    .footer-contacts .footer-sep{margin:0;}
-  }
-  @media (prefers-reduced-motion: reduce){
-    .day-cell.available{transition:none;}
-    .scroll-cta .arrow-down{animation:none;}
-    .contract-note{animation:none;}
-  }
+  .skill-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:560px){
+  .wrap{padding:30px 16px 30px;}
+  .card{padding:24px 22px; border-radius:18px;}
+  .area-intro{flex-direction:column; align-items:flex-start; gap:20px; padding:26px 22px;}
+  .intro-emblem{width:88px; height:88px; border-radius:22px;}
+  .intro-emblem svg{width:62px; height:62px;}
+  .intro-name{font-size:38px;}
+  .hero-baseline{font-size:17px;}
+  .lang-switch{top:14px; right:14px;}
+  .section-lead{gap:6px 14px; letter-spacing:.12em; font-size:11px; margin:20px 4px 16px;}
+  .area-lead .lead-title{font-size:21px; letter-spacing:.01em;}
+  .lead-badge{font-size:10px; letter-spacing:.16em;}
+  .skill-grid{grid-template-columns:1fr; gap:18px;}
+  .foot{flex-direction:column; align-items:flex-start; gap:12px;}
+}
+@media (prefers-reduced-motion:reduce){
+  a.card, a.card:hover, .cta{transition:none;}
+  .intro-emblem{animation:none;}
+}
 </style>
+
 </head>
 <body>
+<div class="wrap">
+  <main>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-identity"><svg class="identity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M5 12h14"/><path d="M12 5c2.4 1.9 2.4 12.1 0 14"/><path d="M12 5c-2.4 1.9 -2.4 12.1 0 14"/><ellipse cx="12" cy="12" rx="10.5" ry="4" transform="rotate(-28 12 12)" stroke-dasharray="1.4 2.2"/><circle cx="21.3" cy="7.1" r="1.15" fill="currentColor" stroke="none"/></svg>Erwan Milbéo</div>
-    <div class="badge-row">
-      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>BNSSA</span>
-      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>PSE1</span>
-      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>PSE2</span>
-      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><line x1="12" y1="22" x2="12" y2="7.5"/><path d="M5 12H3a9 9 0 0 0 18 0h-2"/></svg>Permis bateau</span>
-      <span class="badge-break" aria-hidden="true"></span>
-      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Finistère · Bretagne</span>
-      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.4 3.9 5.6 3.9 9s-1.4 6.6-3.9 9c-2.5-2.4-3.9-5.6-3.9-9S9.5 5.4 12 3z"/></svg>France entière</span>
+    <!-- 1 · PRÉSENTATION -->
+    <section class="card area-intro">
+      <div class="lang-switch" role="group" aria-label="Langue / Language">
+        <button type="button" class="lang-btn" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <div class="intro-emblem" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <!-- Monogramme ME (arrondi) : jambe droite du M = barre verticale du E -->
+          <g fill="none" stroke="#F5FAF9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M30 88 L30 36 L44 62 L58 36 L58 88"/>
+            <path d="M58 36 L82 36"/>
+            <path d="M58 62 L76 62"/>
+            <path d="M58 88 L82 88"/>
+          </g>
+          <!-- Mappemonde ambre (coin haut droit, dégagée des lettres) -->
+          <g fill="none" stroke="#E8B23C" stroke-width="2" stroke-linecap="round">
+            <circle cx="101" cy="21" r="8.5"/>
+            <line x1="92.5" y1="21" x2="109.5" y2="21"/>
+            <ellipse cx="101" cy="21" rx="3.5" ry="8.5"/>
+            <path d="M93 15.5 Q101 18.5 109 15.5"/>
+            <path d="M93 26.5 Q101 23.5 109 26.5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="intro-body">
+        <h1 class="intro-name"><span class="nm-first">Erwan&nbsp;</span>Milbéo</h1>
+        <div class="hero-baseline">“Many roles. One freedom.”</div>
+        <div class="intro-bio" data-i18n="hero.bio"><p class='bio-lead'>Au-delà de la créativité, une conviction : on ne bâtit rien de grand l'esprit encombré. La performance naît d'abord de l'équilibre — un esprit sain dans un corps sain, avec le sport comme discipline quotidienne, le contact humain du terrain et se rendre utile aux autres ; jusqu'à sauver des vies…</p><p class='bio-close'>Serial entrepreneur depuis 1991, Erwan évolue à l'intersection de l'immobilier international et des nouvelles technologies. Fondateur et dirigeant de sociétés en France, Italie, Espagne, Grande-Bretagne et Bahreïn — jusqu'à 300 salariés à travers le monde —, il crée, dirige et détient des entreprises à l'échelle internationale depuis plus de trente-cinq ans.</p><p class='bio-sign'>Libérer le corps et l'esprit laisse la vision respirer.</p></div>
+      </div>
+    </section>
+
+    <div class="section-lead" data-i18n="sectionlead">
+      <span>Entrepreneur.</span><span>Lifeguard.</span><span>Athlete.</span><span class="hf">Human&nbsp;first.</span>
     </div>
-    <h1>NAGEUR-SAUVETEUR-SECOURISTE<br><span class="accent">Disponible</span></h1>
-    <ul class="hero-offers">
-      <li><span class="offer-arrow"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="18" y2="12"/><polyline points="12 6 18 12 12 18"/></svg></span>Remplacements à la demande</li>
-      <li><span class="offer-arrow"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="18" y2="12"/><polyline points="12 6 18 12 12 18"/></svg></span>Saisons complètes</li>
-    </ul>
-    <p class="lede">Surveillant, sauveteur et secouriste diplômé, disponible pour vos remplacements ponctuels et vos saisons :</p>
-    <ul class="hero-venues">
-      <li>Piscines publiques et privées</li>
-      <li>Thalassothérapies</li>
-      <li>Hôtels &amp; Appart-hôtels</li>
-      <li>Lacs</li>
-      <li>Centres de loisir</li>
-      <li>Campings</li>
-      <li>Compétitions sportives</li>
-      <li>Événements, concerts, festivals, manifestations…</li>
-    </ul>
-    <div class="contract-note">
-      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5"/><path d="M9 14l2 2 4-4"/></svg>
-      <span class="contract-label">Contrats salariés ou <span class="nowrap">facturation</span></span>
-      <button type="button" class="contract-more" id="open-conditions">Voir conditions
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </button>
-    </div>
-    <div class="hero-lifebuoy" aria-hidden="true">🛟 ⛑️</div>
-    <a class="scroll-cta" href="#calendar-root">Réservez votre créneau libre ci-dessous<span class="arrow-down"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/></svg></span></a>
-  </div>
-</section>
 
-<div class="legend-bar">
-  <div class="legend-item"><span class="legend-cell"><span class="flag"></span></span> Disponible — cliquez pour réserver</div>
-  <div class="legend-item"><span class="legend-cell booked"><span class="flag"></span></span> Déjà réservé</div>
-</div>
+    <div class="bento">
 
-<div class="cal-section" id="calendar-root"></div>
-
-<div class="open-note">
-  <div class="open-note-inner">
-    À partir de <strong>janvier 2028</strong>, mon agenda est entièrement ouvert. Contactez-moi directement pour programmer vos missions.
-  </div>
-</div>
-
-<div class="booking-wrap">
-  <div id="booking-panel">
-    <div class="booking-header">
-      <div>
-        <h3><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--pool)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-4px;margin-right:6px;"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M9 15l2 2 4-4"/></svg>Demande de réservation</h3>
-        <p class="picker-hint">Dates sélectionnées :</p>
-        <p id="panel-dates-recap" class="panel-dates-recap"></p>
-      </div>
-      <button class="close-btn" id="close-panel" aria-label="Fermer">✕</button>
-    </div>
-    <form id="booking-form">
-      <div class="row2">
-        <div>
-          <label for="nom">Nom / structure</label>
-          <input type="text" id="nom" required placeholder="Ex. Piscine municipale de Rosporden">
-        </div>
-        <div>
-          <label for="type-structure">Type de structure</label>
-          <select id="type-structure">
-            <option>Piscine</option>
-            <option>Thalassothérapie</option>
-            <option>Lac / étang</option>
-            <option>Centre de loisirs</option>
-            <option>Camping</option>
-            <option>Compétition sportive</option>
-            <option>Événement / concert / festival</option>
-            <option>Autre</option>
-          </select>
-        </div>
-      </div>
-      <div class="row2">
-        <div>
-          <label for="contact">Nom du contact</label>
-          <input type="text" id="contact" required placeholder="Ex. Jean Dupont">
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" required placeholder="vous@exemple.fr">
-        </div>
-      </div>
-      <div>
-        <label for="tel">Téléphone</label>
-        <input type="tel" id="tel" required placeholder="06 00 00 00 00">
-      </div>
-      <div>
-        <label for="message">Message (horaires, mission, lieu…)</label>
-        <textarea id="message" placeholder="Ex. Surveillance bassin, 9h-18h, remplacement d'une journée"></textarea>
-      </div>
-      <button type="submit" class="submit-btn">Envoyer la demande</button>
-      <p class="form-note">Votre logiciel de messagerie va s'ouvrir avec la demande pré-remplie, adressée directement à Erwan Milbéo.</p>
-    </form>
-
-    <div id="confirmation-box" class="confirmation-box">
-      <h4>
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="var(--flag-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><circle cx="12" cy="12" r="9"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg>
-        Demande prête
-      </h4>
-      <p>Une fenêtre Gmail a dû s'ouvrir dans un nouvel onglet avec la demande pré-remplie. Si ce n'est pas le cas, utilisez l'un des boutons ci-dessous, ou copiez le message et envoyez-le vous-même à <strong id="confirmation-email"></strong>.</p>
-      <pre id="confirmation-text"></pre>
-      <div class="confirmation-actions">
-        <a id="gmail-fallback" href="#" target="_blank" class="mailto-fallback">Ouvrir dans Gmail</a>
-        <button type="button" id="copy-btn" class="copy-btn">Copier le message</button>
-        <a id="mailto-fallback" href="#" class="mailto-fallback">Ouvrir avec ma messagerie</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-line footer-desc">
-    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--pool)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><circle cx="12" cy="12" r="7"/><path d="M5 12h14"/><path d="M12 5c2.4 1.9 2.4 12.1 0 14"/><path d="M12 5c-2.4 1.9 -2.4 12.1 0 14"/><ellipse cx="12" cy="12" rx="10.5" ry="4" transform="rotate(-28 12 12)" stroke-dasharray="1.4 2.2"/><circle cx="21.3" cy="7.1" r="1.15" fill="var(--pool)" stroke="none"/></svg><span class="footer-seg">Erwan Milbéo — BNSSA · PSE1 · PSE2 · Permis bateau</span><span class="sep sep-1"> — </span><br class="brk brk-1"><span class="footer-seg">Remplacements &amp; Saisons</span><span class="sep sep-2"> · </span><br class="brk brk-2"><span class="footer-seg">Sauvetage-Secourisme · Bretagne &amp; <span class="nowrap">France entière</span></span>
-  </div>
-  <div class="footer-line footer-contacts">
-    <a href="tel:+33650876887" class="footer-contact">
-      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z"/></svg>
-      06 50 87 68 87
+    <!-- 2 · ENTREPRENEUR INTERNATIONAL (leader) -->
+    <a class="card area-lead" href="https://suncom.estate" target="_blank" rel="noopener">
+      <svg class="lead-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3.5" y="3" width="9" height="18"/>
+        <rect x="12.5" y="8" width="8" height="13"/>
+        <path d="M2.5 21h19"/>
+        <path d="M6 7h1M9.5 7h1M6 10.5h1M9.5 10.5h1M6 14h1M9.5 14h1"/>
+        <path d="M15 11.5h1M18 11.5h1M15 15h1M18 15h1"/>
+        <circle class="accent" cx="10" cy="17.5" r="1.05"/>
+      </svg>
+      <span class="lead-badge" data-i18n="lead.kicker">Immobilier · Technologie · IA</span>
+      <h2 class="lead-title" data-i18n="lead.title"><span class='t1'>Entrepreneur</span> <span class='t2'>international</span></h2>
+      <div class="lead-sub" data-i18n="lead.sub">Créateur · Dirigeant · Actionnaire</div>
+      <p class="lead-body" data-i18n="lead.body">Trois décennies et demie de bâtisseur : créer, faire croître, puis céder des sociétés sur plusieurs continents, à l'intersection de l'immobilier et de la deep tech. Aujourd'hui, porté par l'avènement de l'intelligence artificielle et par le concours de ses associés et amis de toujours, Erwan fait éclore à New York le plus ambitieux de ses projets. Sa signature : marier l'expertise immobilière la plus fine à l'orchestration des intelligences artificielles, pour inverser le paradigme d'une corporation mondiale et réécrire les règles d'un secteur tout entier.</p>
+      <span class="cta"><span data-i18n="lead.cta">Découvrir</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+      <svg class="lead-deco" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true">
+        <rect x="8" y="46" width="22" height="52"/>
+        <rect x="32" y="28" width="26" height="70"/>
+        <rect x="60" y="55" width="20" height="43"/>
+        <path d="M4 98h88"/>
+        <path d="M14 54h2M22 54h2M14 62h2M22 62h2M14 70h2M22 70h2"/>
+        <path d="M38 36h3M48 36h3M38 46h3M48 46h3M38 56h3M48 56h3M38 66h3M48 66h3"/>
+        <path d="M65 63h2M73 63h2M65 71h2M73 71h2"/>
+      </svg>
     </a>
-    <span class="footer-sep">·</span>
-    <a href="mailto:em.officiel@pm.me" class="footer-contact">
-      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-      em.officiel@pm.me
-    </a>
-  </div>
-  <div class="footer-line">
-    <a href="https://www.erwan-milbeo.com" class="footer-contact" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"/></svg>
-      www.erwan-milbeo.com
-    </a>
-  </div>
-</footer>
 
-<div class="modal-overlay" id="conditions-modal" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="conditions-title">
-    <button type="button" class="modal-close" id="close-conditions" aria-label="Fermer">✕</button>
-    <h3 id="conditions-title">Conditions d'intervention</h3>
-    <p class="modal-sub">Salarié ou facturation</p>
-    <div class="modal-body">
-      <h4>Contrat salarié</h4>
-      <p>Intervention en tant que salarié (CDD, vacation, contrat saisonnier) selon les besoins de votre structure. Base taux horaires conventionné ou négocié.</p>
-      <h4>Facturation</h4>
-      <p>Intervention en prestation de service avec facturation, pour vos remplacements ponctuels comme pour vos saisons. Tarif selon la mission, la période, la durée et la zone géographique.</p>
-      <h4>Zone &amp; disponibilités</h4>
-      <p>Finistère · Bretagne ou France entière selon la mission. Tarifs et disponibilités précis communiqués sur demande via le formulaire de réservation.</p>
-      <p class="modal-note">* Possibilité de complément frais kilométriques et/ou hébergement en fonction de la nature de la demande.</p>
+    <!-- 4 · SPORTIF -->
+    <section class="card area-sport">
+      <div class="kicker" data-i18n="sport.kicker">Way of life</div>
+      <h2 data-i18n="sport.title">Sportif</h2>
+      <p data-i18n="sport.body">Compétiteur depuis l'enfance — la rigueur solitaire du tennis, l'engagement collectif du rugby —, Erwan a forgé sur le terrain ce qui fait les dirigeants d'exception : endurance, dépassement, maîtrise des émotions, préparation mentale. Pas un jour sans sport. Nageur accompli, skieur haut gradé, kitesurfeur de la première heure, il puise dans l'effort l'endorphine qui transforme la discipline de l'athlète en carburant de la performance entrepreneuriale.</p>
+      <div class="sport-tags" data-i18n="sport.tags">
+        <span class="tag">Tennis</span>
+        <span class="tag">Rugby</span>
+        <span class="tag">Ski</span>
+        <span class="tag">Kitesurf</span>
+        <span class="tag">Natation</span>
+      </div>
+    </section>
+
+    <!-- 3 · NAGEUR-SAUVETEUR-SECOURISTE (annexe) -->
+    <a class="card area-save" href="nageur-sauveteur-secouriste/">
+      <div class="kicker" data-i18n="save.kicker">Sauvetage · Secourisme</div>
+      <h2 data-i18n="save.title">Nageur-Sauveteur<br>Secouriste</h2>
+      <p data-i18n="save.body">Quand l'entrepreneur referme ses dossiers, l'homme se met au service des autres. Loin du cérébral permanent des affaires, veiller sur le public le reconnecte à l'essentiel — le contact, l'instant présent, l'équilibre. Car aucune réussite ne tient sans le don de soi.</p>
+      <span class="cta"><span data-i18n="save.cta">Réservation</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+      <svg class="save-buoy" viewBox="0 0 24 24" fill="none" stroke="#F5FAF9" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg>
+    </a>
+
+    <!-- 5 · COMPÉTENCES -->
+    <section class="card area-skill">
+      <div class="kicker" data-i18n="skill.kicker">// profil</div>
+      <h2 data-i18n="skill.title">Compétences</h2>
+      <div class="skill-grid">
+        <div class="skill-col" data-i18n="skill.col1">
+          <h3>Entreprise</h3>
+          <ul>
+            <li>Vision &amp; stratégie</li>
+            <li>Créativité</li>
+            <li>Pilotage &amp; management</li>
+            <li>Recherche &amp; développement</li>
+          </ul>
+        </div>
+        <div class="skill-col" data-i18n="skill.col2">
+          <h3>Sauvetage-Secourisme</h3>
+          <ul>
+            <li>Sens de l'équipe</li>
+            <li>Rigueur &amp; organisation</li>
+            <li>Anticipation</li>
+            <li>Gestion de l'urgence</li>
+          </ul>
+        </div>
+        <div class="skill-col" data-i18n="skill.col3">
+          <h3>Atouts</h3>
+          <ul>
+            <li>Trilingue FR EN ES</li>
+            <li>Relationnel &amp; Adaptabilité</li>
+            <li>Assidu</li>
+            <li>Pédagogue</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /.bento -->
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 Erwan Milbéo</span>
+    <div class="foot-contacts">
+      <a href="tel:+33650876887"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z"/></svg>06 50 87 68 87</a>
+      <a href="mailto:em.officiel@pm.me"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>em.officiel@pm.me</a>
     </div>
-  </div>
-</div>
-
-<div id="sticky-cart" class="sticky-cart">
-  <div class="cart-chips" id="cart-chips"></div>
-  <button type="button" id="cart-cta" class="cart-cta">
-    <span id="cart-count"></span> — remplir la demande
-  </button>
+  </footer>
 </div>
 
 <script>
-  // Contact — à remplacer par les coordonnées réelles d'Erwan
-  const CONTACT_EMAIL = "em.officiel@pm.me";
-
-  const monthsData = [
-    { year:2026, monthIndex:7,  label:"Août 2026",      booked:[1,2,5,6,7,8,11,13,15,16,17,18,19,22,23,24,25,26,28,29,30] },
-    { year:2026, monthIndex:8,  label:"Septembre 2026",  booked:[5,6,26,27] },
-    { year:2026, monthIndex:9,  label:"Octobre 2026",    booked:[3,4,17,18,31] },
-    { year:2026, monthIndex:10, label:"Novembre 2026",   booked:[1,7,8,14,15,28,29] },
-    { year:2026, monthIndex:11, label:"Décembre 2026",   booked:[19,20,26,27] },
-    { year:2027, monthIndex:0,  label:"Janvier 2027",    booked:[16,17] },
-    { year:2027, monthIndex:1,  label:"Février 2027",    booked:[6,7,27,28] },
-    { year:2027, monthIndex:2,  label:"Mars 2027",       booked:[20,21] },
-    { year:2027, monthIndex:3,  label:"Avril 2027",      booked:[] },
-    { year:2027, monthIndex:4,  label:"Mai 2027",        booked:[] },
-    { year:2027, monthIndex:5,  label:"Juin 2027",       booked:[] },
-    { year:2027, monthIndex:6,  label:"Juillet 2027",    booked:[] },
-    { year:2027, monthIndex:7,  label:"Août 2027",       booked:[] },
-    { year:2027, monthIndex:8,  label:"Septembre 2027",  booked:[] },
-    { year:2027, monthIndex:9,  label:"Octobre 2027",    booked:[] },
-    { year:2027, monthIndex:10, label:"Novembre 2027",   booked:[] },
-    { year:2027, monthIndex:11, label:"Décembre 2027",   booked:[] },
-  ];
-
-  const weekdayLabels = ["L","M","M","J","V","S","D"];
-  const monthNamesFull = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
-
-  const root = document.getElementById('calendar-root');
-  let selectedDates = []; // [{year, monthIndex, day, key}]
-  const cellRegistry = {}; // key -> cell element
-
-  function daysInMonth(year, monthIndex){
-    return new Date(year, monthIndex+1, 0).getDate();
-  }
-  function firstWeekdayMonFirst(year, monthIndex){
-    const jsDay = new Date(year, monthIndex, 1).getDay(); // 0=Sun..6=Sat
-    return (jsDay + 6) % 7; // 0=Mon..6=Sun
-  }
-
-  const now = new Date();
-  let expandedIndex = monthsData.findIndex(m => m.year === now.getFullYear() && m.monthIndex === now.getMonth());
-  if(expandedIndex < 0) expandedIndex = 0;
-
-  monthsData.forEach((m, mi) => {
-    const total = daysInMonth(m.year, m.monthIndex);
-    const available = total - m.booked.length;
-
-    const block = document.createElement('div');
-    block.className = 'month-block' + (mi === expandedIndex ? '' : ' collapsed');
-
-    const title = document.createElement('button');
-    title.type = 'button';
-    title.className = 'month-title';
-    title.setAttribute('aria-expanded', mi === expandedIndex ? 'true' : 'false');
-    title.innerHTML = `<span class="month-heading">${m.label} <span class="month-count">${available} jour${available>1?'s':''} disponible${available>1?'s':''}</span></span><svg class="month-caret" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>`;
-    block.appendChild(title);
-
-    const body = document.createElement('div');
-    body.className = 'month-body';
-
-    const weekdaysRow = document.createElement('div');
-    weekdaysRow.className = 'weekdays';
-    weekdayLabels.forEach(w => {
-      const s = document.createElement('span');
-      s.textContent = w;
-      weekdaysRow.appendChild(s);
-    });
-    body.appendChild(weekdaysRow);
-
-    const grid = document.createElement('div');
-    grid.className = 'days-grid';
-
-    const leading = firstWeekdayMonFirst(m.year, m.monthIndex);
-    for(let i=0;i<leading;i++){
-      const empty = document.createElement('div');
-      empty.className = 'day-cell empty';
-      grid.appendChild(empty);
-    }
-
-    for(let d=1; d<=total; d++){
-      const isBooked = m.booked.includes(d);
-      const cell = document.createElement('div');
-      cell.className = 'day-cell ' + (isBooked ? 'booked' : 'available');
-
-      const flag = document.createElement('div');
-      flag.className = 'flag';
-      const num = document.createElement('div');
-      num.className = 'num';
-      num.textContent = d;
-
-      cell.appendChild(flag);
-      cell.appendChild(num);
-
-      if(!isBooked){
-        const key = `${m.year}-${m.monthIndex}-${d}`;
-        cellRegistry[key] = cell;
-        cell.addEventListener('click', () => toggleDay(m.year, m.monthIndex, d, key));
-      }
-      grid.appendChild(cell);
-    }
-
-    body.appendChild(grid);
-    block.appendChild(body);
-
-    title.addEventListener('click', () => {
-      const collapsed = block.classList.toggle('collapsed');
-      title.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-    });
-
-    root.appendChild(block);
-  });
-
-  function toggleDay(year, monthIndex, day, key){
-    const idx = selectedDates.findIndex(sd => sd.key === key);
-    if(idx >= 0){
-      selectedDates.splice(idx, 1);
-      cellRegistry[key].classList.remove('selected');
-    } else {
-      selectedDates.push({ year, monthIndex, day, key });
-      cellRegistry[key].classList.add('selected');
-    }
-    renderSelectedDates();
-  }
-
-  function renderSelectedDates(){
-    const panel = document.getElementById('booking-panel');
-    const cart = document.getElementById('sticky-cart');
-    const cartChips = document.getElementById('cart-chips');
-    const cartCount = document.getElementById('cart-count');
-    const recap = document.getElementById('panel-dates-recap');
-
-    const sorted = selectedDates
-      .slice()
-      .sort((a, b) => new Date(a.year, a.monthIndex, a.day) - new Date(b.year, b.monthIndex, b.day));
-
-    cartChips.innerHTML = '';
-    sorted.forEach(sd => {
-      const chip = document.createElement('span');
-      chip.className = 'cart-chip';
-      chip.innerHTML = `${sd.day} ${monthNamesFull[sd.monthIndex].slice(0,3)} <button type="button" aria-label="Retirer cette date">✕</button>`;
-      chip.querySelector('button').addEventListener('click', () => toggleDay(sd.year, sd.monthIndex, sd.day, sd.key));
-      cartChips.appendChild(chip);
-    });
-
-    recap.textContent = sorted.map(sd => `${sd.day} ${monthNamesFull[sd.monthIndex]} ${sd.year}`).join(' · ');
-
-    if(selectedDates.length > 0){
-      panel.classList.add('show');
-      cart.classList.add('show');
-      document.body.classList.add('cart-active');
-      cartCount.textContent = `${selectedDates.length} date${selectedDates.length > 1 ? 's' : ''}`;
-    } else {
-      panel.classList.remove('show');
-      cart.classList.remove('show');
-      document.body.classList.remove('cart-active');
+  // Aligne le début de la baseline sous le « M » de Milbéo
+  function alignBaseline(){
+    var first=document.querySelector('.nm-first');
+    var base=document.querySelector('.hero-baseline');
+    if(first&&base){
+      // Desktop : la baseline commence sous le « M » de Milbéo. Mobile : léger retrait seulement.
+      base.style.marginLeft = (window.innerWidth>560) ? first.getBoundingClientRect().width+'px' : '3em';
     }
   }
+  window.addEventListener('load',alignBaseline);
+  window.addEventListener('resize',alignBaseline);
+  if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(alignBaseline); }
 
-  document.getElementById('cart-cta').addEventListener('click', () => {
-    document.getElementById('booking-panel').scrollIntoView({behavior:'smooth', block:'start'});
-  });
+  // ---- i18n FR / EN (le slogan "Many roles. One freedom." n'est jamais traduit) ----
+  var I18N = {
+    fr: {
+      'hero.bio': "<p class='bio-lead'>Au-delà de la créativité, une conviction : on ne bâtit rien de grand l'esprit encombré. La performance naît d'abord de l'équilibre — un esprit sain dans un corps sain, avec le sport comme discipline quotidienne, le contact humain du terrain et se rendre utile aux autres ; jusqu'à sauver des vies…</p><p class='bio-close'>Serial entrepreneur depuis 1991, Erwan évolue à l'intersection de l'immobilier international et des nouvelles technologies. Fondateur et dirigeant de sociétés en France, Italie, Espagne, Grande-Bretagne et Bahreïn — jusqu'à 300 salariés à travers le monde —, il crée, dirige et détient des entreprises à l'échelle internationale depuis plus de trente-cinq ans.</p><p class='bio-sign'>Libérer le corps et l'esprit laisse la vision respirer.</p>",
+      'sectionlead': '<span>Entrepreneur.</span><span>Sauveteur.</span><span>Athlète.</span><span class="hf">D’abord&nbsp;humain.</span>',
+      'lead.kicker': "Immobilier · Technologie · IA",
+      'lead.title': "<span class='t1'>Entrepreneur</span> <span class='t2'>international</span>",
+      'lead.sub': "Créateur · Dirigeant · Actionnaire",
+      'lead.body': "Trois décennies et demie de bâtisseur : créer, faire croître, puis céder des sociétés sur plusieurs continents, à l'intersection de l'immobilier et de la deep tech. Aujourd'hui, porté par l'avènement de l'intelligence artificielle et par le concours de ses associés et amis de toujours, Erwan fait éclore à New York le plus ambitieux de ses projets. Sa signature : marier l'expertise immobilière la plus fine à l'orchestration des intelligences artificielles, pour inverser le paradigme d'une corporation mondiale et réécrire les règles d'un secteur tout entier.",
+      'lead.cta': "Découvrir",
+      'sport.kicker': "Way of life",
+      'sport.title': "Sportif",
+      'sport.body': "Compétiteur depuis l'enfance — la rigueur solitaire du tennis, l'engagement collectif du rugby —, Erwan a forgé sur le terrain ce qui fait les dirigeants d'exception : endurance, dépassement, maîtrise des émotions, préparation mentale. Pas un jour sans sport. Nageur accompli, skieur haut gradé, kitesurfeur de la première heure, il puise dans l'effort l'endorphine qui transforme la discipline de l'athlète en carburant de la performance entrepreneuriale.",
+      'sport.tags': '<span class="tag">Tennis</span><span class="tag">Rugby</span><span class="tag">Ski</span><span class="tag">Kitesurf</span><span class="tag">Natation</span>',
+      'save.kicker': "Sauvetage · Secourisme",
+      'save.title': "Nageur-Sauveteur<br>Secouriste",
+      'save.body': "Quand l'entrepreneur referme ses dossiers, l'homme se met au service des autres. Loin du cérébral permanent des affaires, veiller sur le public le reconnecte à l'essentiel — le contact, l'instant présent, l'équilibre. Car aucune réussite ne tient sans le don de soi.",
+      'save.cta': "Réservation",
+      'skill.kicker': "// profil",
+      'skill.title': "Compétences",
+      'skill.col1': "<h3>Entreprise</h3><ul><li>Vision &amp; stratégie</li><li>Créativité</li><li>Pilotage &amp; management</li><li>Recherche &amp; développement</li></ul>",
+      'skill.col2': "<h3>Sauvetage-Secourisme</h3><ul><li>Sens de l'équipe</li><li>Rigueur &amp; organisation</li><li>Anticipation</li><li>Gestion de l'urgence</li></ul>",
+      'skill.col3': "<h3>Atouts</h3><ul><li>Trilingue FR EN ES</li><li>Relationnel &amp; Adaptabilité</li><li>Assidu</li><li>Pédagogue</li></ul>"
+    },
+    en: {
+      'hero.bio': "<p class='bio-lead'>Beyond creativity lies a conviction: nothing great is built with a cluttered mind. Performance grows first from balance — a sound mind in a sound body, sport as a daily discipline, the human contact of the field and being of service to others; even saving lives…</p><p class='bio-close'>A serial entrepreneur since 1991, Erwan operates at the crossroads of international real estate and emerging technologies. Founder and director of companies across France, Italy, Spain, the United Kingdom and Bahrain — up to 300 employees worldwide — he has been building, leading and owning businesses on an international scale for over thirty-five years.</p><p class='bio-sign'>Freeing body and mind lets the vision breathe.</p>",
+      'sectionlead': '<span>Entrepreneur.</span><span>Lifeguard.</span><span>Athlete.</span><span class="hf">Human&nbsp;first.</span>',
+      'lead.kicker': "Real estate · Technology · AI",
+      'lead.title': "<span class='t1'>International</span> <span class='t2'>entrepreneur</span>",
+      'lead.sub': "Founder · Executive · Shareholder",
+      'lead.body': "Three and a half decades as a builder — founding, scaling and divesting companies across continents, where real estate meets deep tech. Today, propelled by the rise of artificial intelligence and the backing of his partners and lifelong friends, Erwan is bringing his most ambitious venture to life in New York. His signature: pairing the sharpest real-estate expertise with the orchestration of artificial intelligence, to invert the paradigm of an entire global industry and rewrite the rules of a whole sector.",
+      'lead.cta': "Explore",
+      'sport.kicker': "Way of life",
+      'sport.title': "Athlete",
+      'sport.body': "A competitor since childhood — the solitary rigour of tennis, the collective commitment of rugby — Erwan forged on the field what defines exceptional leaders: endurance, the drive to go further, emotional mastery and mental preparation. Not a day without sport. An accomplished swimmer, a highly certified skier, a kitesurfer from the sport's earliest days, he draws from effort the endorphin that turns an athlete's discipline into fuel for entrepreneurial performance.",
+      'sport.tags': '<span class="tag">Tennis</span><span class="tag">Rugby</span><span class="tag">Ski</span><span class="tag">Kitesurf</span><span class="tag">Swimming</span>',
+      'save.kicker': "Water rescue · First aid",
+      'save.title': "Lifeguard &amp;<br>First responder",
+      'save.body': "When the entrepreneur closes his files, the man puts himself at the service of others. Far from the relentless mental churn of business, watching over the public brings him back to what matters — human contact, the present moment, balance. For no success holds without giving of oneself.",
+      'save.cta': "Booking",
+      'skill.kicker': "// profile",
+      'skill.title': "Skills",
+      'skill.col1': "<h3>Business</h3><ul><li>Vision &amp; strategy</li><li>Creativity</li><li>Leadership &amp; management</li><li>Research &amp; development</li></ul>",
+      'skill.col2': "<h3>Rescue &amp; first aid</h3><ul><li>Team spirit</li><li>Rigour &amp; organisation</li><li>Anticipation</li><li>Emergency response</li></ul>",
+      'skill.col3': "<h3>Strengths</h3><ul><li>Trilingual FR EN ES</li><li>Interpersonal &amp; adaptability</li><li>Dedicated</li><li>Mentor</li></ul>"
+    }
+  };
 
-  document.getElementById('close-panel').addEventListener('click', () => {
-    document.getElementById('booking-panel').classList.remove('show');
-    document.getElementById('sticky-cart').classList.remove('show');
-    document.body.classList.remove('cart-active');
-    document.querySelectorAll('.day-cell.selected').forEach(c => c.classList.remove('selected'));
-    selectedDates = [];
-    document.getElementById('cart-chips').innerHTML = '';
-    document.getElementById('panel-dates-recap').textContent = '';
-  });
-
-  document.getElementById('booking-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    if(selectedDates.length === 0){ return; }
-    const nom = document.getElementById('nom').value;
-    const type = document.getElementById('type-structure').value;
-    const contact = document.getElementById('contact').value;
-    const email = document.getElementById('email').value;
-    const tel = document.getElementById('tel').value;
-    const message = document.getElementById('message').value;
-
-    const datesLabel = selectedDates
-      .slice()
-      .sort((a, b) => new Date(a.year, a.monthIndex, a.day) - new Date(b.year, b.monthIndex, b.day))
-      .map(sd => `- ${sd.day} ${monthNamesFull[sd.monthIndex]} ${sd.year}`)
-      .join('\n');
-
-    const subject = `Demande de réservation — ${selectedDates.length > 1 ? selectedDates.length + ' dates' : datesLabel.replace('- ', '')}`;
-    const body =
-`Structure / nom : ${nom}
-Type de structure : ${type}
-Nom du contact : ${contact}
-Email : ${email}
-Téléphone : ${tel}
-
-Dates demandées :
-${datesLabel}
-
-Message :
-${message}`;
-
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const gmailCompose = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    document.getElementById('confirmation-email').textContent = CONTACT_EMAIL;
-    document.getElementById('confirmation-text').textContent = `À : ${CONTACT_EMAIL}\nObjet : ${subject}\n\n${body}`;
-    document.getElementById('mailto-fallback').href = mailto;
-    document.getElementById('gmail-fallback').href = gmailCompose;
-    document.getElementById('confirmation-box').classList.add('show');
-    document.getElementById('confirmation-box').scrollIntoView({behavior:'smooth', block:'center'});
-
-    window.open(gmailCompose, '_blank');
-  });
-
-  document.getElementById('copy-btn').addEventListener('click', () => {
-    const text = document.getElementById('confirmation-text').textContent;
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = document.getElementById('copy-btn');
-      const original = btn.textContent;
-      btn.textContent = 'Copié ✓';
-      setTimeout(() => { btn.textContent = original; }, 2000);
+  function setLang(lang){
+    if(lang!=='fr'&&lang!=='en') lang='fr';
+    var dict=I18N[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k=el.getAttribute('data-i18n');
+      if(dict[k]!=null) el.innerHTML=dict[k];
     });
-  });
+    document.documentElement.setAttribute('lang',lang);
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      var on=b.getAttribute('data-lang')===lang;
+      b.classList.toggle('is-active',on);
+      b.setAttribute('aria-pressed', on?'true':'false');
+    });
+    try{ localStorage.setItem('lang',lang); }catch(e){}
+    alignBaseline();
+  }
 
-  // ----- Popup "Voir conditions" -----
-  const conditionsModal = document.getElementById('conditions-modal');
-  function openConditions(){
-    conditionsModal.classList.add('show');
-    conditionsModal.setAttribute('aria-hidden', 'false');
-    document.getElementById('close-conditions').focus();
-  }
-  function closeConditions(){
-    conditionsModal.classList.remove('show');
-    conditionsModal.setAttribute('aria-hidden', 'true');
-  }
-  document.getElementById('open-conditions').addEventListener('click', openConditions);
-  document.getElementById('close-conditions').addEventListener('click', closeConditions);
-  conditionsModal.addEventListener('click', (e) => {
-    if(e.target === conditionsModal){ closeConditions(); }
-  });
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && conditionsModal.classList.contains('show')){ closeConditions(); }
-  });
+  (function(){
+    var saved=null; try{ saved=localStorage.getItem('lang'); }catch(e){}
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.addEventListener('click',function(){ setLang(b.getAttribute('data-lang')); });
+    });
+    setLang(saved||'fr');
+  })();
 </script>
-
 </body>
 </html>

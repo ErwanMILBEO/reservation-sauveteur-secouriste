@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disponibilités — Sauveteur aquatique BNSSA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marine:#0A2A3B;
+    --marine-2:#0F3A50;
+    --foam:#F5FAF9;
+    --pool:#147D86;
+    --pool-light:#DCEEEF;
+    --flag-green:#2E8B57;
+    --flag-green-dim:#BFE0CC;
+    --flag-red:#C1432E;
+    --flag-red-dim:#E6C9C2;
+    --sand:#E8C468;
+    --ink:#16323F;
+    --mist:#7C9399;
+    --line:#D7E3E4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--foam);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3{
+    font-family:'Bebas Neue',sans-serif;
+    letter-spacing:0.02em;
+    margin:0;
+    font-weight:400;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:radial-gradient(circle at 15% 20%, var(--marine-2) 0%, var(--marine) 55%, #071C28 100%);
+    color:var(--foam);
+    padding:40px 24px 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:280px; height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(232,196,104,0.18) 0%, rgba(232,196,104,0) 70%);
+  }
+  .hero-inner{max-width:920px; margin:0 auto; position:relative; z-index:1;}
+  .hero-identity{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    margin-bottom:18px;
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:22px;
+    letter-spacing:0.02em;
+    color:var(--sand);
+    opacity:0.8;
+  }
+  .hero-identity .identity-icon{
+    width:25px;
+    height:25px;
+    flex-shrink:0;
+  }
+  .badge-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px;}
+  .badge{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:5px 10px;
+    border:1px solid rgba(245,250,249,0.35);
+    border-radius:3px;
+    color:var(--foam);
+    background:rgba(245,250,249,0.06);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .badge svg{flex-shrink:0;}
+  /* Force les badges géographiques sur une 2e ligne (sous la bouée) */
+  .badge-break{flex-basis:100%; height:0;}
+  .hero-lifebuoy{
+    position:absolute;
+    top:-10px; right:0px;
+    font-size:76px;
+    line-height:1;
+    z-index:0;
+    opacity:0.5;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,0.25));
+  }
+  .hero h1{
+    font-size:clamp(32px, 5.2vw, 56px);
+    line-height:1.05;
+    max-width:32ch;
+  }
+  .hero .accent{color:var(--sand);}
+  .hero p.lede{
+    font-size:17px;
+    max-width:52ch;
+    color:#CFE3E4;
+    margin-top:18px;
+  }
+  .hero-offers{
+    list-style:none;
+    margin:20px 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+  }
+  .hero-offers li{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:16px;
+    font-weight:500;
+    letter-spacing:0.02em;
+    color:var(--foam);
+  }
+  .hero-offers .offer-arrow{
+    flex-shrink:0;
+    width:26px; height:26px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(232,196,104,0.14);
+    color:var(--sand);
+  }
+  .hero-offers .offer-arrow svg{display:block;}
+  .hero-venues{
+    list-style:none;
+    margin:14px 0 0;
+    padding:0;
+    max-width:56ch;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 26px;
+  }
+  .hero-venues li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    color:#DCEAEB;
+  }
+  .hero-venues li::before{
+    content:"";
+    flex-shrink:0;
+    width:0; height:0;
+    border-top:5px solid transparent;
+    border-bottom:5px solid transparent;
+    border-left:8px solid var(--flag-green);
+  }
+  .scroll-cta{
+    display:flex;
+    width:fit-content;
+    max-width:100%;
+    align-items:center;
+    gap:13px;
+    margin-top:30px;
+    text-decoration:none;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:25px;
+    letter-spacing:0.03em;
+    color:var(--sand);
+    transition:opacity .15s ease;
+  }
+  .scroll-cta:hover{opacity:0.85;}
+  .scroll-cta .arrow-down{
+    flex-shrink:0;
+    width:36px; height:36px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    border:1.5px solid var(--sand);
+    background:rgba(232,196,104,0.1);
+    animation:cta-bob 1.9s ease-in-out infinite;
+  }
+  @keyframes cta-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
+  .status-strip{
+    margin-top:32px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:#CFE3E4;
+  }
+  .contract-note{
+    position:relative;
+    margin-top:22px;
+    display:flex;
+    width:fit-content;
+    max-width:100%;
+    box-sizing:border-box;
+    align-items:center;
+    gap:11px;
+    padding:11px 18px;
+    border:1px solid rgba(232,196,104,0.6);
+    border-radius:16px;
+    background:linear-gradient(150deg, rgba(232,196,104,0.22) 0%, rgba(232,196,104,0.06) 60%, rgba(232,196,104,0.12) 100%);
+    color:var(--sand);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.28),
+      inset 0 -2px 6px rgba(0,0,0,0.22),
+      0 6px 16px -4px rgba(0,0,0,0.4),
+      0 0 22px -2px rgba(232,196,104,0.5),
+      0 0 0 4px rgba(232,196,104,0.07);
+    animation:note-halo 3.2s ease-in-out infinite;
+  }
+  @keyframes note-halo{
+    0%,100%{box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.28),
+      inset 0 -2px 6px rgba(0,0,0,0.22),
+      0 6px 16px -4px rgba(0,0,0,0.4),
+      0 0 22px -2px rgba(232,196,104,0.5),
+      0 0 0 4px rgba(232,196,104,0.07);}
+    50%{box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.32),
+      inset 0 -2px 6px rgba(0,0,0,0.22),
+      0 8px 20px -4px rgba(0,0,0,0.45),
+      0 0 34px 2px rgba(232,196,104,0.7),
+      0 0 0 5px rgba(232,196,104,0.12);}
+  }
+  .contract-note svg{flex-shrink:0;}
+  .contract-note .nowrap{white-space:nowrap;}
+  .contract-more{
+    flex-shrink:0;
+    appearance:none;
+    border:none;
+    cursor:pointer;
+    background:var(--sand);
+    color:var(--marine);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    padding:6px 12px;
+    border-radius:20px;
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.3);
+    transition:filter .15s ease, transform .1s ease;
+  }
+  .contract-more:hover{filter:brightness(1.08);}
+  .contract-more:active{transform:translateY(1px);}
+  .contract-more svg{width:13px;height:13px;}
+
+  /* ---------- MODAL CONDITIONS ---------- */
+  .modal-overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:rgba(7,28,40,0.62);
+    backdrop-filter:blur(3px);
+    padding:24px;
+    align-items:center;
+    justify-content:center;
+  }
+  .modal-overlay.show{display:flex;}
+  .modal{
+    position:relative;
+    width:100%;
+    max-width:520px;
+    max-height:85vh;
+    overflow-y:auto;
+    background:var(--foam);
+    border:1px solid var(--line);
+    border-top:4px solid var(--sand);
+    border-radius:14px;
+    padding:28px 26px 26px;
+    box-shadow:0 24px 60px rgba(7,28,40,0.5);
+  }
+  .modal h3{
+    font-size:24px;
+    color:var(--marine);
+    margin-bottom:4px;
+  }
+  .modal .modal-sub{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--pool);
+    margin:0 0 16px;
+  }
+  .modal-body h4{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--marine);
+    margin:16px 0 6px;
+  }
+  .modal-body p{font-size:14px; color:var(--ink); margin:0 0 10px;}
+  .modal-body .modal-note{
+    font-style:italic;
+    font-weight:300;
+    font-size:12.5px;
+    color:var(--mist);
+    margin-top:14px;
+  }
+  .modal-body .placeholder-flag{
+    font-size:12px;
+    color:var(--flag-red);
+    background:var(--flag-red-dim);
+    border-radius:6px;
+    padding:8px 10px;
+    margin-top:14px;
+  }
+  .modal-close{
+    position:absolute;
+    top:14px; right:14px;
+    background:none;
+    border:none;
+    font-size:22px;
+    line-height:1;
+    color:var(--mist);
+    cursor:pointer;
+    padding:4px;
+  }
+  .modal-close:hover{color:var(--marine);}
+  .pole{
+    width:2px; height:34px; background:#CFE3E4; opacity:0.5;
+  }
+  .flag-icon{
+    width:0; height:0;
+    border-top:11px solid transparent;
+    border-bottom:11px solid transparent;
+    border-left:16px solid var(--flag-green);
+  }
+  .flag-icon.red{border-left-color:var(--flag-red);}
+
+  /* ---------- LEGEND ---------- */
+  .legend-bar{
+    max-width:920px; margin:0 auto;
+    display:flex; gap:28px; flex-wrap:wrap;
+    padding:20px 24px;
+    font-size:13px;
+    color:var(--mist);
+  }
+  .legend-item{display:flex; align-items:center; gap:8px;}
+  .legend-flag{width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:11px solid var(--flag-green);}
+  .legend-flag.red{border-left-color:var(--flag-red);}
+  .legend-flag.grey{border-left-color:#B7C4C6;}
+  /* Mini-cases reprenant l'apparence des cellules du calendrier */
+  .legend-cell{
+    flex-shrink:0;
+    width:24px; height:24px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+  }
+  .legend-cell.booked{background:#EEF2F2;}
+  .legend-cell .flag{
+    width:0; height:0;
+    border-top:6px solid transparent;
+    border-bottom:6px solid transparent;
+    border-left:9px solid var(--flag-green);
+  }
+  .legend-cell.booked .flag{border-left-color:#B7C4C6;}
+
+  /* ---------- CALENDAR SECTION ---------- */
+  .cal-section{max-width:920px; margin:0 auto; padding:0 24px 40px;}
+  .month-block{margin-bottom:24px;}
+  .month-block.collapsed{margin-bottom:8px;}
+  .month-title{
+    width:100%;
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin:0 0 14px;
+    padding:10px 16px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#fff;
+    text-align:left;
+    cursor:pointer;
+    transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .month-block.collapsed .month-title{margin-bottom:0;}
+  .month-title:hover{border-color:var(--pool); box-shadow:0 3px 12px rgba(20,125,134,0.13);}
+  .month-title:focus-visible{outline:2px solid var(--pool); outline-offset:2px;}
+  .month-block:not(.collapsed) .month-title{background:var(--pool-light); border-color:var(--pool);}
+  .month-heading{
+    display:flex;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:2px 9px;
+    font-family:'Bebas Neue', sans-serif;
+    font-size:23px;
+    letter-spacing:0.03em;
+    line-height:1.05;
+    color:var(--marine);
+  }
+  .month-count{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    font-weight:500;
+    color:var(--pool);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .month-caret{flex-shrink:0; width:19px; height:19px; color:var(--mist); transition:transform .2s ease;}
+  .month-title:hover .month-caret,
+  .month-block:not(.collapsed) .month-caret{color:var(--pool);}
+  .month-block.collapsed .month-caret{transform:rotate(-90deg);}
+  .month-block.collapsed .month-body{display:none;}
+  .weekdays{
+    display:grid;
+    grid-template-columns:repeat(7, 1fr);
+    gap:6px;
+    margin-bottom:6px;
+  }
+  .weekdays span{
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--mist);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  .days-grid{
+    display:grid;
+    grid-template-columns:repeat(7, 1fr);
+    gap:6px;
+  }
+  .day-cell{
+    aspect-ratio:1/1;
+    border-radius:6px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    background:#fff;
+    border:1px solid var(--line);
+    cursor:default;
+  }
+  .day-cell.empty{background:transparent; border:none;}
+  .day-cell .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--ink);
+  }
+  .day-cell .flag{
+    width:0;height:0;
+    border-top:6px solid transparent;
+    border-bottom:6px solid transparent;
+    border-left:9px solid var(--flag-green);
+  }
+  .day-cell.booked{
+    background:#EEF2F2;
+    border-color:var(--line);
+  }
+  .day-cell.booked .num{color:#A9B7BA;}
+  .day-cell.booked .flag{border-left-color:#B7C4C6;}
+  .day-cell.available{
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .day-cell.available:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 10px rgba(20,125,134,0.18);
+    border-color:var(--pool);
+    cursor:pointer;
+  }
+  .day-cell.selected{
+    background:var(--pool);
+    border-color:var(--pool);
+  }
+  .day-cell.selected .num{color:#fff;}
+  .day-cell.selected .flag{border-left-color:var(--sand);}
+
+  .open-note{
+    max-width:920px; margin:0 auto 22px; padding:0 24px;
+  }
+  .open-note-inner{
+    background:var(--pool-light);
+    border-left:4px solid var(--pool);
+    padding:16px 20px;
+    border-radius:0 6px 6px 0;
+    font-size:14px;
+    color:var(--marine);
+  }
+
+  /* ---------- BOOKING PANEL ---------- */
+  .booking-wrap{max-width:920px; margin:0 auto; padding:0 24px 70px;}
+  #booking-panel{
+    display:none;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:28px;
+    box-shadow:0 8px 24px rgba(10,42,59,0.08);
+  }
+  #booking-panel.show{display:block;}
+  .booking-header{
+    display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
+    margin-bottom:18px;
+  }
+  .booking-header h3{font-size:24px; color:var(--marine);}
+  .selected-date-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--pool);
+    background:var(--pool-light);
+    padding:4px 10px;
+    border-radius:4px;
+    margin-top:6px;
+    display:inline-block;
+  }
+  .picker-hint{
+    font-size:12px;
+    color:var(--mist);
+    margin:4px 0 4px;
+  }
+  .panel-dates-recap{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:17px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    color:var(--marine);
+    background:rgba(232,196,104,0.18);
+    border-left:3px solid var(--sand);
+    padding:8px 12px;
+    border-radius:0 6px 6px 0;
+    margin:0;
+  }
+  body.cart-active{padding-bottom:78px;}
+  .sticky-cart{
+    display:none;
+    position:fixed;
+    left:0; right:0; bottom:0;
+    background:var(--marine);
+    color:var(--foam);
+    padding:12px 20px;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    box-shadow:0 -8px 22px rgba(0,0,0,0.18);
+    z-index:50;
+  }
+  .sticky-cart.show{display:flex;}
+  .cart-chips{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    flex:1;
+    padding-bottom:2px;
+  }
+  .cart-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    white-space:nowrap;
+    background:rgba(245,250,249,0.1);
+    border:1px solid rgba(245,250,249,0.25);
+    padding:5px 6px 5px 10px;
+    border-radius:16px;
+    flex-shrink:0;
+  }
+  .cart-chip button{
+    background:none; border:none; color:var(--foam);
+    cursor:pointer; font-size:12px; line-height:1;
+    padding:2px 5px; border-radius:50%; opacity:0.7;
+  }
+  .cart-chip button:hover{opacity:1; background:rgba(245,250,249,0.15);}
+  .cart-cta{
+    background:var(--sand);
+    color:var(--marine);
+    border:none;
+    font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    font-size:12px;
+    padding:12px 18px;
+    border-radius:6px;
+    cursor:pointer;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .cart-cta:hover{filter:brightness(1.05);}
+  .close-btn{
+    background:none; border:none; font-size:20px; color:var(--mist);
+    cursor:pointer; line-height:1; padding:4px;
+  }
+  form{display:grid; gap:14px;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  label{
+    font-size:12px; text-transform:uppercase; letter-spacing:0.05em;
+    color:var(--mist); font-family:'IBM Plex Mono',monospace;
+    display:block; margin-bottom:5px;
+  }
+  input, select, textarea{
+    width:100%;
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--ink);
+    background:var(--foam);
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:2px solid var(--pool);
+    outline-offset:1px;
+  }
+  textarea{resize:vertical; min-height:80px;}
+  .submit-btn{
+    justify-self:start;
+    background:var(--marine);
+    color:var(--foam);
+    border:none;
+    font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-size:13px;
+    padding:13px 26px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  .submit-btn:hover{background:var(--pool);}
+  .form-note{font-size:12px; color:var(--mist); margin-top:-4px;}
+
+  .confirmation-box{
+    display:none;
+    margin-top:22px;
+    padding:20px 22px;
+    background:var(--pool-light);
+    border:1px solid var(--pool);
+    border-radius:10px;
+  }
+  .confirmation-box.show{display:block;}
+  .confirmation-box h4{
+    font-size:20px;
+    color:var(--marine);
+    margin-bottom:8px;
+  }
+  .confirmation-box p{
+    font-size:13px;
+    color:var(--ink);
+    margin:0 0 12px;
+  }
+  #confirmation-text{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    white-space:pre-wrap;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:12px 14px;
+    max-height:220px;
+    overflow-y:auto;
+    margin:0 0 14px;
+  }
+  .confirmation-actions{display:flex; gap:12px; flex-wrap:wrap;}
+  .copy-btn{
+    background:var(--marine);
+    color:var(--foam);
+    border:none;
+    font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    font-size:12px;
+    padding:11px 18px;
+    border-radius:6px;
+    cursor:pointer;
+  }
+  .copy-btn:hover{background:var(--pool);}
+  .mailto-fallback{
+    display:inline-flex;
+    align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    font-size:12px;
+    color:var(--pool);
+    text-decoration:none;
+    padding:11px 4px;
+  }
+  .mailto-fallback:hover{text-decoration:underline;}
+
+  .empty-hint{
+    text-align:center; color:var(--mist); font-size:14px; padding:40px 20px;
+    border:1px dashed var(--line); border-radius:10px;
+  }
+
+  footer{
+    text-align:center;
+    padding:16px 24px 40px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--mist);
+  }
+  .footer-line{margin-top:8px;}
+  .footer-line:first-child{margin-top:0;}
+  /* Coupures du descriptif : desktop = diplômes / activité ;
+     mobile = césure après « Saisons » */
+  .footer-desc .nowrap{white-space:nowrap;}
+  .footer-desc .sep-1{display:none;}
+  .footer-desc .sep-2{display:inline;}
+  .footer-desc .brk-2{display:none;}
+  .footer-contact{
+    color:var(--pool);
+    text-decoration:none;
+  }
+  .footer-contact:hover{text-decoration:underline;}
+  .footer-contact svg{vertical-align:-2px; margin-right:5px;}
+  .footer-sep{margin:0 10px; color:var(--line);}
+
+  @media (max-width:560px){
+    .row2{grid-template-columns:1fr;}
+    .day-cell .num{font-size:11px;}
+    .month-title{padding:9px 13px;}
+    .month-heading{font-size:21px;}
+
+    /* Hero mobile : bouée + casque réduits et placés dans le flux, centrés
+       en bas (plus aucun risque de chevaucher les badges ou le texte) */
+    .hero{padding:30px 20px 30px;}
+    .hero-identity{font-size:18px; gap:10px; margin-bottom:14px;}
+    .hero-identity .identity-icon{width:21px; height:21px;}
+    .hero-lifebuoy{
+      position:static;
+      text-align:center;
+      font-size:37px;
+      margin:22px 0 2px;
+    }
+    .hero-venues{grid-template-columns:1fr; gap:8px; margin-top:12px;}
+    .scroll-cta{font-size:22px; margin-top:24px; gap:11px;}
+    .scroll-cta .arrow-down{width:32px; height:32px;}
+    /* Bloc contrat : bouton sur sa propre ligne pour ne pas déborder */
+    .contract-note{display:flex; flex-wrap:wrap; width:100%; box-sizing:border-box;}
+    .contract-note .contract-label{flex:1 1 auto;}
+    .contract-more{flex-basis:100%; justify-content:center; margin-top:4px;}
+    /* Badges resserrés pour que Finistère · Bretagne + France entière
+       tiennent côte à côte sur une seule ligne */
+    .badge-row{gap:5px;}
+    .badge{font-size:10px; padding:4px 6px; letter-spacing:0.03em; gap:4px;}
+    .badge svg{width:12px; height:12px;}
+    .hero-offers{gap:9px; margin-top:18px;}
+    .hero-offers li{font-size:14px; gap:9px;}
+    .hero-offers .offer-arrow{width:23px; height:23px;}
+
+    /* Marges latérales resserrées pour gagner de la largeur utile */
+    .legend-bar,
+    .cal-section,
+    .open-note,
+    .booking-wrap{padding-left:16px; padding-right:16px;}
+    #booking-panel{padding:22px 16px;}
+
+    /* Panier fixe : le CTA monopolisait la largeur, les dates étaient
+       tronquées et non supprimables → passage en 2 lignes empilées */
+    .sticky-cart{
+      flex-direction:column;
+      align-items:stretch;
+      gap:8px;
+      padding:10px 12px;
+    }
+    .cart-chips{flex:none; width:100%;}
+    .cart-cta{width:100%; text-align:center;}
+    body.cart-active{padding-bottom:120px;}
+
+    /* Footer : césure après « Saisons » (au lieu de la coupure desktop) */
+    .footer-desc .sep-1{display:inline;}
+    .footer-desc .brk-1{display:none;}
+    .footer-desc .sep-2{display:none;}
+    .footer-desc .brk-2{display:inline;}
+
+    /* Footer : téléphone + email sur une seule ligne */
+    .footer-contacts{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:nowrap;
+      gap:5px;
+      white-space:nowrap;
+    }
+    .footer-contacts .footer-sep{margin:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .day-cell.available{transition:none;}
+    .scroll-cta .arrow-down{animation:none;}
+    .contract-note{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-identity"><svg class="identity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M5 12h14"/><path d="M12 5c2.4 1.9 2.4 12.1 0 14"/><path d="M12 5c-2.4 1.9 -2.4 12.1 0 14"/><ellipse cx="12" cy="12" rx="10.5" ry="4" transform="rotate(-28 12 12)" stroke-dasharray="1.4 2.2"/><circle cx="21.3" cy="7.1" r="1.15" fill="currentColor" stroke="none"/></svg>Erwan Milbéo</div>
+    <div class="badge-row">
+      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>BNSSA</span>
+      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>PSE1</span>
+      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>PSE2</span>
+      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><line x1="12" y1="22" x2="12" y2="7.5"/><path d="M5 12H3a9 9 0 0 0 18 0h-2"/></svg>Permis bateau</span>
+      <span class="badge-break" aria-hidden="true"></span>
+      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Finistère · Bretagne</span>
+      <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.4 3.9 5.6 3.9 9s-1.4 6.6-3.9 9c-2.5-2.4-3.9-5.6-3.9-9S9.5 5.4 12 3z"/></svg>France entière</span>
+    </div>
+    <h1>NAGEUR-SAUVETEUR-SECOURISTE<br><span class="accent">Disponible</span></h1>
+    <ul class="hero-offers">
+      <li><span class="offer-arrow"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="18" y2="12"/><polyline points="12 6 18 12 12 18"/></svg></span>Remplacements à la demande</li>
+      <li><span class="offer-arrow"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="18" y2="12"/><polyline points="12 6 18 12 12 18"/></svg></span>Saisons complètes</li>
+    </ul>
+    <p class="lede">Surveillant, sauveteur et secouriste diplômé, disponible pour vos remplacements ponctuels et vos saisons :</p>
+    <ul class="hero-venues">
+      <li>Piscines publiques et privées</li>
+      <li>Thalassothérapies</li>
+      <li>Hôtels &amp; Appart-hôtels</li>
+      <li>Lacs</li>
+      <li>Centres de loisir</li>
+      <li>Campings</li>
+      <li>Compétitions sportives</li>
+      <li>Événements, concerts, festivals, manifestations…</li>
+    </ul>
+    <div class="contract-note">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5"/><path d="M9 14l2 2 4-4"/></svg>
+      <span class="contract-label">Contrats salariés ou <span class="nowrap">facturation</span></span>
+      <button type="button" class="contract-more" id="open-conditions">Voir conditions
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+    <div class="hero-lifebuoy" aria-hidden="true">🛟 ⛑️</div>
+    <a class="scroll-cta" href="#calendar-root">Réservez votre créneau libre ci-dessous<span class="arrow-down"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/></svg></span></a>
+  </div>
+</section>
+
+<div class="legend-bar">
+  <div class="legend-item"><span class="legend-cell"><span class="flag"></span></span> Disponible — cliquez pour réserver</div>
+  <div class="legend-item"><span class="legend-cell booked"><span class="flag"></span></span> Déjà réservé</div>
+</div>
+
+<div class="cal-section" id="calendar-root"></div>
+
+<div class="open-note">
+  <div class="open-note-inner">
+    À partir de <strong>janvier 2028</strong>, mon agenda est entièrement ouvert. Contactez-moi directement pour programmer vos missions.
+  </div>
+</div>
+
+<div class="booking-wrap">
+  <div id="booking-panel">
+    <div class="booking-header">
+      <div>
+        <h3><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="var(--pool)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-4px;margin-right:6px;"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/><path d="M9 15l2 2 4-4"/></svg>Demande de réservation</h3>
+        <p class="picker-hint">Dates sélectionnées :</p>
+        <p id="panel-dates-recap" class="panel-dates-recap"></p>
+      </div>
+      <button class="close-btn" id="close-panel" aria-label="Fermer">✕</button>
+    </div>
+    <form id="booking-form">
+      <div class="row2">
+        <div>
+          <label for="nom">Nom / structure</label>
+          <input type="text" id="nom" required placeholder="Ex. Piscine municipale de Rosporden">
+        </div>
+        <div>
+          <label for="type-structure">Type de structure</label>
+          <select id="type-structure">
+            <option>Piscine</option>
+            <option>Thalassothérapie</option>
+            <option>Lac / étang</option>
+            <option>Centre de loisirs</option>
+            <option>Camping</option>
+            <option>Compétition sportive</option>
+            <option>Événement / concert / festival</option>
+            <option>Autre</option>
+          </select>
+        </div>
+      </div>
+      <div class="row2">
+        <div>
+          <label for="contact">Nom du contact</label>
+          <input type="text" id="contact" required placeholder="Ex. Jean Dupont">
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" required placeholder="vous@exemple.fr">
+        </div>
+      </div>
+      <div>
+        <label for="tel">Téléphone</label>
+        <input type="tel" id="tel" required placeholder="06 00 00 00 00">
+      </div>
+      <div>
+        <label for="message">Message (horaires, mission, lieu…)</label>
+        <textarea id="message" placeholder="Ex. Surveillance bassin, 9h-18h, remplacement d'une journée"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Envoyer la demande</button>
+      <p class="form-note">Votre logiciel de messagerie va s'ouvrir avec la demande pré-remplie, adressée directement à Erwan Milbéo.</p>
+    </form>
+
+    <div id="confirmation-box" class="confirmation-box">
+      <h4>
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="var(--flag-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><circle cx="12" cy="12" r="9"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg>
+        Demande prête
+      </h4>
+      <p>Une fenêtre Gmail a dû s'ouvrir dans un nouvel onglet avec la demande pré-remplie. Si ce n'est pas le cas, utilisez l'un des boutons ci-dessous, ou copiez le message et envoyez-le vous-même à <strong id="confirmation-email"></strong>.</p>
+      <pre id="confirmation-text"></pre>
+      <div class="confirmation-actions">
+        <a id="gmail-fallback" href="#" target="_blank" class="mailto-fallback">Ouvrir dans Gmail</a>
+        <button type="button" id="copy-btn" class="copy-btn">Copier le message</button>
+        <a id="mailto-fallback" href="#" class="mailto-fallback">Ouvrir avec ma messagerie</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-line footer-desc">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--pool)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><circle cx="12" cy="12" r="7"/><path d="M5 12h14"/><path d="M12 5c2.4 1.9 2.4 12.1 0 14"/><path d="M12 5c-2.4 1.9 -2.4 12.1 0 14"/><ellipse cx="12" cy="12" rx="10.5" ry="4" transform="rotate(-28 12 12)" stroke-dasharray="1.4 2.2"/><circle cx="21.3" cy="7.1" r="1.15" fill="var(--pool)" stroke="none"/></svg><span class="footer-seg">Erwan Milbéo — BNSSA · PSE1 · PSE2 · Permis bateau</span><span class="sep sep-1"> — </span><br class="brk brk-1"><span class="footer-seg">Remplacements &amp; Saisons</span><span class="sep sep-2"> · </span><br class="brk brk-2"><span class="footer-seg">Sauvetage-Secourisme · Bretagne &amp; <span class="nowrap">France entière</span></span>
+  </div>
+  <div class="footer-line footer-contacts">
+    <a href="tel:+33650876887" class="footer-contact">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2z"/></svg>
+      06 50 87 68 87
+    </a>
+    <span class="footer-sep">·</span>
+    <a href="mailto:em.officiel@pm.me" class="footer-contact">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+      em.officiel@pm.me
+    </a>
+  </div>
+  <div class="footer-line">
+    <a href="https://www.erwan-milbeo.com" class="footer-contact" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"/></svg>
+      www.erwan-milbeo.com
+    </a>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="conditions-modal" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="conditions-title">
+    <button type="button" class="modal-close" id="close-conditions" aria-label="Fermer">✕</button>
+    <h3 id="conditions-title">Conditions d'intervention</h3>
+    <p class="modal-sub">Salarié ou facturation</p>
+    <div class="modal-body">
+      <h4>Contrat salarié</h4>
+      <p>Intervention en tant que salarié (CDD, vacation, contrat saisonnier) selon les besoins de votre structure. Base taux horaires conventionné ou négocié.</p>
+      <h4>Facturation</h4>
+      <p>Intervention en prestation de service avec facturation, pour vos remplacements ponctuels comme pour vos saisons. Tarif selon la mission, la période, la durée et la zone géographique.</p>
+      <h4>Zone &amp; disponibilités</h4>
+      <p>Finistère · Bretagne ou France entière selon la mission. Tarifs et disponibilités précis communiqués sur demande via le formulaire de réservation.</p>
+      <p class="modal-note">* Possibilité de complément frais kilométriques et/ou hébergement en fonction de la nature de la demande.</p>
+    </div>
+  </div>
+</div>
+
+<div id="sticky-cart" class="sticky-cart">
+  <div class="cart-chips" id="cart-chips"></div>
+  <button type="button" id="cart-cta" class="cart-cta">
+    <span id="cart-count"></span> — remplir la demande
+  </button>
+</div>
+
+<script>
+  // Contact — à remplacer par les coordonnées réelles d'Erwan
+  const CONTACT_EMAIL = "em.officiel@pm.me";
+
+  const monthsData = [
+    { year:2026, monthIndex:7,  label:"Août 2026",      booked:[1,2,5,6,7,8,11,13,15,16,17,18,19,22,23,24,25,26,28,29,30] },
+    { year:2026, monthIndex:8,  label:"Septembre 2026",  booked:[5,6,26,27] },
+    { year:2026, monthIndex:9,  label:"Octobre 2026",    booked:[3,4,17,18,31] },
+    { year:2026, monthIndex:10, label:"Novembre 2026",   booked:[1,7,8,14,15,28,29] },
+    { year:2026, monthIndex:11, label:"Décembre 2026",   booked:[19,20,26,27] },
+    { year:2027, monthIndex:0,  label:"Janvier 2027",    booked:[16,17] },
+    { year:2027, monthIndex:1,  label:"Février 2027",    booked:[6,7,27,28] },
+    { year:2027, monthIndex:2,  label:"Mars 2027",       booked:[20,21] },
+    { year:2027, monthIndex:3,  label:"Avril 2027",      booked:[] },
+    { year:2027, monthIndex:4,  label:"Mai 2027",        booked:[] },
+    { year:2027, monthIndex:5,  label:"Juin 2027",       booked:[] },
+    { year:2027, monthIndex:6,  label:"Juillet 2027",    booked:[] },
+    { year:2027, monthIndex:7,  label:"Août 2027",       booked:[] },
+    { year:2027, monthIndex:8,  label:"Septembre 2027",  booked:[] },
+    { year:2027, monthIndex:9,  label:"Octobre 2027",    booked:[] },
+    { year:2027, monthIndex:10, label:"Novembre 2027",   booked:[] },
+    { year:2027, monthIndex:11, label:"Décembre 2027",   booked:[] },
+  ];
+
+  const weekdayLabels = ["L","M","M","J","V","S","D"];
+  const monthNamesFull = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+
+  const root = document.getElementById('calendar-root');
+  let selectedDates = []; // [{year, monthIndex, day, key}]
+  const cellRegistry = {}; // key -> cell element
+
+  function daysInMonth(year, monthIndex){
+    return new Date(year, monthIndex+1, 0).getDate();
+  }
+  function firstWeekdayMonFirst(year, monthIndex){
+    const jsDay = new Date(year, monthIndex, 1).getDay(); // 0=Sun..6=Sat
+    return (jsDay + 6) % 7; // 0=Mon..6=Sun
+  }
+
+  const now = new Date();
+  let expandedIndex = monthsData.findIndex(m => m.year === now.getFullYear() && m.monthIndex === now.getMonth());
+  if(expandedIndex < 0) expandedIndex = 0;
+
+  monthsData.forEach((m, mi) => {
+    const total = daysInMonth(m.year, m.monthIndex);
+    const available = total - m.booked.length;
+
+    const block = document.createElement('div');
+    block.className = 'month-block' + (mi === expandedIndex ? '' : ' collapsed');
+
+    const title = document.createElement('button');
+    title.type = 'button';
+    title.className = 'month-title';
+    title.setAttribute('aria-expanded', mi === expandedIndex ? 'true' : 'false');
+    title.innerHTML = `<span class="month-heading">${m.label} <span class="month-count">${available} jour${available>1?'s':''} disponible${available>1?'s':''}</span></span><svg class="month-caret" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>`;
+    block.appendChild(title);
+
+    const body = document.createElement('div');
+    body.className = 'month-body';
+
+    const weekdaysRow = document.createElement('div');
+    weekdaysRow.className = 'weekdays';
+    weekdayLabels.forEach(w => {
+      const s = document.createElement('span');
+      s.textContent = w;
+      weekdaysRow.appendChild(s);
+    });
+    body.appendChild(weekdaysRow);
+
+    const grid = document.createElement('div');
+    grid.className = 'days-grid';
+
+    const leading = firstWeekdayMonFirst(m.year, m.monthIndex);
+    for(let i=0;i<leading;i++){
+      const empty = document.createElement('div');
+      empty.className = 'day-cell empty';
+      grid.appendChild(empty);
+    }
+
+    for(let d=1; d<=total; d++){
+      const isBooked = m.booked.includes(d);
+      const cell = document.createElement('div');
+      cell.className = 'day-cell ' + (isBooked ? 'booked' : 'available');
+
+      const flag = document.createElement('div');
+      flag.className = 'flag';
+      const num = document.createElement('div');
+      num.className = 'num';
+      num.textContent = d;
+
+      cell.appendChild(flag);
+      cell.appendChild(num);
+
+      if(!isBooked){
+        const key = `${m.year}-${m.monthIndex}-${d}`;
+        cellRegistry[key] = cell;
+        cell.addEventListener('click', () => toggleDay(m.year, m.monthIndex, d, key));
+      }
+      grid.appendChild(cell);
+    }
+
+    body.appendChild(grid);
+    block.appendChild(body);
+
+    title.addEventListener('click', () => {
+      const collapsed = block.classList.toggle('collapsed');
+      title.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+    });
+
+    root.appendChild(block);
+  });
+
+  function toggleDay(year, monthIndex, day, key){
+    const idx = selectedDates.findIndex(sd => sd.key === key);
+    if(idx >= 0){
+      selectedDates.splice(idx, 1);
+      cellRegistry[key].classList.remove('selected');
+    } else {
+      selectedDates.push({ year, monthIndex, day, key });
+      cellRegistry[key].classList.add('selected');
+    }
+    renderSelectedDates();
+  }
+
+  function renderSelectedDates(){
+    const panel = document.getElementById('booking-panel');
+    const cart = document.getElementById('sticky-cart');
+    const cartChips = document.getElementById('cart-chips');
+    const cartCount = document.getElementById('cart-count');
+    const recap = document.getElementById('panel-dates-recap');
+
+    const sorted = selectedDates
+      .slice()
+      .sort((a, b) => new Date(a.year, a.monthIndex, a.day) - new Date(b.year, b.monthIndex, b.day));
+
+    cartChips.innerHTML = '';
+    sorted.forEach(sd => {
+      const chip = document.createElement('span');
+      chip.className = 'cart-chip';
+      chip.innerHTML = `${sd.day} ${monthNamesFull[sd.monthIndex].slice(0,3)} <button type="button" aria-label="Retirer cette date">✕</button>`;
+      chip.querySelector('button').addEventListener('click', () => toggleDay(sd.year, sd.monthIndex, sd.day, sd.key));
+      cartChips.appendChild(chip);
+    });
+
+    recap.textContent = sorted.map(sd => `${sd.day} ${monthNamesFull[sd.monthIndex]} ${sd.year}`).join(' · ');
+
+    if(selectedDates.length > 0){
+      panel.classList.add('show');
+      cart.classList.add('show');
+      document.body.classList.add('cart-active');
+      cartCount.textContent = `${selectedDates.length} date${selectedDates.length > 1 ? 's' : ''}`;
+    } else {
+      panel.classList.remove('show');
+      cart.classList.remove('show');
+      document.body.classList.remove('cart-active');
+    }
+  }
+
+  document.getElementById('cart-cta').addEventListener('click', () => {
+    document.getElementById('booking-panel').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('close-panel').addEventListener('click', () => {
+    document.getElementById('booking-panel').classList.remove('show');
+    document.getElementById('sticky-cart').classList.remove('show');
+    document.body.classList.remove('cart-active');
+    document.querySelectorAll('.day-cell.selected').forEach(c => c.classList.remove('selected'));
+    selectedDates = [];
+    document.getElementById('cart-chips').innerHTML = '';
+    document.getElementById('panel-dates-recap').textContent = '';
+  });
+
+  document.getElementById('booking-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    if(selectedDates.length === 0){ return; }
+    const nom = document.getElementById('nom').value;
+    const type = document.getElementById('type-structure').value;
+    const contact = document.getElementById('contact').value;
+    const email = document.getElementById('email').value;
+    const tel = document.getElementById('tel').value;
+    const message = document.getElementById('message').value;
+
+    const datesLabel = selectedDates
+      .slice()
+      .sort((a, b) => new Date(a.year, a.monthIndex, a.day) - new Date(b.year, b.monthIndex, b.day))
+      .map(sd => `- ${sd.day} ${monthNamesFull[sd.monthIndex]} ${sd.year}`)
+      .join('\n');
+
+    const subject = `Demande de réservation — ${selectedDates.length > 1 ? selectedDates.length + ' dates' : datesLabel.replace('- ', '')}`;
+    const body =
+`Structure / nom : ${nom}
+Type de structure : ${type}
+Nom du contact : ${contact}
+Email : ${email}
+Téléphone : ${tel}
+
+Dates demandées :
+${datesLabel}
+
+Message :
+${message}`;
+
+    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailCompose = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    document.getElementById('confirmation-email').textContent = CONTACT_EMAIL;
+    document.getElementById('confirmation-text').textContent = `À : ${CONTACT_EMAIL}\nObjet : ${subject}\n\n${body}`;
+    document.getElementById('mailto-fallback').href = mailto;
+    document.getElementById('gmail-fallback').href = gmailCompose;
+    document.getElementById('confirmation-box').classList.add('show');
+    document.getElementById('confirmation-box').scrollIntoView({behavior:'smooth', block:'center'});
+
+    window.open(gmailCompose, '_blank');
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', () => {
+    const text = document.getElementById('confirmation-text').textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copy-btn');
+      const original = btn.textContent;
+      btn.textContent = 'Copié ✓';
+      setTimeout(() => { btn.textContent = original; }, 2000);
+    });
+  });
+
+  // ----- Popup "Voir conditions" -----
+  const conditionsModal = document.getElementById('conditions-modal');
+  function openConditions(){
+    conditionsModal.classList.add('show');
+    conditionsModal.setAttribute('aria-hidden', 'false');
+    document.getElementById('close-conditions').focus();
+  }
+  function closeConditions(){
+    conditionsModal.classList.remove('show');
+    conditionsModal.setAttribute('aria-hidden', 'true');
+  }
+  document.getElementById('open-conditions').addEventListener('click', openConditions);
+  document.getElementById('close-conditions').addEventListener('click', closeConditions);
+  conditionsModal.addEventListener('click', (e) => {
+    if(e.target === conditionsModal){ closeConditions(); }
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && conditionsModal.classList.contains('show')){ closeConditions(); }
+  });
+</script>
+
+</body>
+</html>
