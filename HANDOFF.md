@@ -5,6 +5,14 @@
 
 ## Changelog
 
+- **2026-08-09** — **Header + footer : logo remplacé par l'emblème ME** de
+  erwan-milbeo.com (carré turquoise + monogramme ME blanc + mappemonde ambre, SVG inline
+  self-contained), en remplacement de l'ancienne icône globe-trotteur. **Header : trait
+  doré dégradé** depuis « Erwan Milbéo » vers une **box « À propos ↗ »** (mono, contour or)
+  qui renvoie à la home `https://www.erwan-milbeo.com/`. Box **calée au pixel au-dessus du
+  badge « Permis bateau »** via `max-width:382px` sur `.hero-identity` (évite la collision
+  avec la bouée déco). Mobile : trait masqué, box alignée à droite, sans débordement.
+  Déployé.
 - **2026-08-06 (4)** — Calendrier en accordéon (mois courant ouvert, autres
   repliés), étendu jusqu'à décembre 2027 ; refonte graphique des titres de mois
   (cartes Bebas) ; bandeau bleu → janvier 2028 ; lien footer → erwan-milbeo.com.

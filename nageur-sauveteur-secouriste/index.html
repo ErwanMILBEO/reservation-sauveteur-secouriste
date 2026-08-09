@@ -66,13 +66,37 @@
     font-size:22px;
     letter-spacing:0.02em;
     color:var(--sand);
-    opacity:0.8;
+    max-width:382px;
   }
   .hero-identity .identity-icon{
     width:25px;
     height:25px;
     flex-shrink:0;
   }
+  .hero-identity .identity-logo{
+    width:34px; height:34px; flex-shrink:0;
+    filter:drop-shadow(0 4px 10px rgba(0,0,0,0.35));
+  }
+  .hero-identity .identity-name{ flex-shrink:0; opacity:0.8; }
+  .identity-rule{
+    flex:1 1 auto; min-width:22px; height:1px; align-self:center;
+    background:linear-gradient(to right, rgba(232,196,104,0.55), rgba(232,196,104,0.06));
+  }
+  .identity-about{
+    flex-shrink:0; display:inline-flex; align-items:center; gap:6px;
+    font-family:'IBM Plex Mono', monospace; font-style:normal; font-weight:500;
+    font-size:11px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--sand); text-decoration:none;
+    padding:6px 13px; border:1px solid rgba(232,196,104,0.45); border-radius:999px;
+    background:rgba(232,196,104,0.04);
+    transition:background .2s, border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .identity-about svg{ opacity:0.85; }
+  .identity-about:hover{
+    background:rgba(232,196,104,0.12); border-color:var(--sand);
+    transform:translateY(-1px); box-shadow:0 4px 16px rgba(232,196,104,0.14);
+  }
+  .identity-about:focus-visible{ outline:2px solid var(--sand); outline-offset:2px; }
   .badge-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px;}
   .badge{
     font-family:'IBM Plex Mono',monospace;
@@ -746,8 +770,11 @@
     /* Hero mobile : bouée + casque réduits et placés dans le flux, centrés
        en bas (plus aucun risque de chevaucher les badges ou le texte) */
     .hero{padding:30px 20px 30px;}
-    .hero-identity{font-size:18px; gap:10px; margin-bottom:14px;}
+    .hero-identity{font-size:18px; gap:10px; margin-bottom:14px; flex-wrap:wrap;}
     .hero-identity .identity-icon{width:21px; height:21px;}
+    .hero-identity .identity-logo{width:28px; height:28px;}
+    .identity-rule{display:none;}
+    .identity-about{margin-left:auto; font-size:10px; padding:5px 11px; letter-spacing:0.1em;}
     .hero-lifebuoy{
       position:static;
       text-align:center;
@@ -817,7 +844,17 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-identity"><svg class="identity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><path d="M5 12h14"/><path d="M12 5c2.4 1.9 2.4 12.1 0 14"/><path d="M12 5c-2.4 1.9 -2.4 12.1 0 14"/><ellipse cx="12" cy="12" rx="10.5" ry="4" transform="rotate(-28 12 12)" stroke-dasharray="1.4 2.2"/><circle cx="21.3" cy="7.1" r="1.15" fill="currentColor" stroke="none"/></svg>Erwan Milbéo</div>
+    <div class="hero-identity">
+      <svg class="identity-logo" viewBox="0 0 120 120" width="34" height="34" aria-hidden="true">
+        <defs><radialGradient id="meEmbH" cx="34%" cy="28%" r="85%"><stop offset="0%" stop-color="#1D9AA3"/><stop offset="55%" stop-color="#147D86"/><stop offset="100%" stop-color="#0E6A72"/></radialGradient></defs>
+        <rect x="4" y="4" width="112" height="112" rx="26" fill="url(#meEmbH)"/>
+        <g fill="none" stroke="#F5FAF9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 88 L30 36 L44 62 L58 36 L58 88"/><path d="M58 36 L82 36"/><path d="M58 62 L76 62"/><path d="M58 88 L82 88"/></g>
+        <g fill="none" stroke="#E8B23C" stroke-width="2" stroke-linecap="round"><circle cx="101" cy="21" r="8.5"/><line x1="92.5" y1="21" x2="109.5" y2="21"/><ellipse cx="101" cy="21" rx="3.5" ry="8.5"/><path d="M93 15.5 Q101 18.5 109 15.5"/><path d="M93 26.5 Q101 23.5 109 26.5"/></g>
+      </svg>
+      <span class="identity-name">Erwan Milbéo</span>
+      <span class="identity-rule" aria-hidden="true"></span>
+      <a class="identity-about" href="https://www.erwan-milbeo.com/">À propos<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="8 7 17 7 17 16"/></svg></a>
+    </div>
     <div class="badge-row">
       <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>BNSSA</span>
       <span class="badge"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>PSE1</span>
@@ -938,7 +975,7 @@
 
 <footer>
   <div class="footer-line footer-desc">
-    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="var(--pool)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><circle cx="12" cy="12" r="7"/><path d="M5 12h14"/><path d="M12 5c2.4 1.9 2.4 12.1 0 14"/><path d="M12 5c-2.4 1.9 -2.4 12.1 0 14"/><ellipse cx="12" cy="12" rx="10.5" ry="4" transform="rotate(-28 12 12)" stroke-dasharray="1.4 2.2"/><circle cx="21.3" cy="7.1" r="1.15" fill="var(--pool)" stroke="none"/></svg><span class="footer-seg">Erwan Milbéo — BNSSA · PSE1 · PSE2 · Permis bateau</span><span class="sep sep-1"> — </span><br class="brk brk-1"><span class="footer-seg">Remplacements &amp; Saisons</span><span class="sep sep-2"> · </span><br class="brk brk-2"><span class="footer-seg">Sauvetage-Secourisme · Bretagne &amp; <span class="nowrap">France entière</span></span>
+    <svg viewBox="0 0 120 120" width="18" height="18" aria-hidden="true" style="vertical-align:-4px;margin-right:7px;"><defs><radialGradient id="meEmbF" cx="34%" cy="28%" r="85%"><stop offset="0%" stop-color="#1D9AA3"/><stop offset="55%" stop-color="#147D86"/><stop offset="100%" stop-color="#0E6A72"/></radialGradient></defs><rect x="4" y="4" width="112" height="112" rx="26" fill="url(#meEmbF)"/><g fill="none" stroke="#F5FAF9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M30 88 L30 36 L44 62 L58 36 L58 88"/><path d="M58 36 L82 36"/><path d="M58 62 L76 62"/><path d="M58 88 L82 88"/></g><g fill="none" stroke="#E8B23C" stroke-width="2" stroke-linecap="round"><circle cx="101" cy="21" r="8.5"/><line x1="92.5" y1="21" x2="109.5" y2="21"/><ellipse cx="101" cy="21" rx="3.5" ry="8.5"/><path d="M93 15.5 Q101 18.5 109 15.5"/><path d="M93 26.5 Q101 23.5 109 26.5"/></g></svg><span class="footer-seg">Erwan Milbéo — BNSSA · PSE1 · PSE2 · Permis bateau</span><span class="sep sep-1"> — </span><br class="brk brk-1"><span class="footer-seg">Remplacements &amp; Saisons</span><span class="sep sep-2"> · </span><br class="brk brk-2"><span class="footer-seg">Sauvetage-Secourisme · Bretagne &amp; <span class="nowrap">France entière</span></span>
   </div>
   <div class="footer-line footer-contacts">
     <a href="tel:+33650876887" class="footer-contact">
